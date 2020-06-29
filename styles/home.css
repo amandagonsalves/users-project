@@ -34,5 +34,24 @@
     height: 60px;
     flex: 1;
     background-color: rgb(63, 223, 148);
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon-menu, .icon-user{
+    cursor: pointer;
+}
+.icon-menu {
+    margin-left: 10px;
+}
+.icon-user {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+.icon-user img {
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
 }

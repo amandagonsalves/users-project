@@ -15,4 +15,7 @@
     .header-users {
         flex: 1;
     }
+    .icon-user p {
+        display: none;
+    }
 }
