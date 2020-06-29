@@ -132,6 +132,7 @@ section {
     padding: 10px;
     border-radius: 5px 5px 0 0;
     border-top: 2px solid rgb(209, 209, 209);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .aside-right {
     flex: 1;
@@ -146,6 +147,7 @@ section {
     width: 50%;
     height: 90px;
     border: 1px solid black;
+    cursor: default;
 }
 #new-users {
     background-color: rgb(50, 50, 177);
