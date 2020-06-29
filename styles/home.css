@@ -118,11 +118,20 @@ section {
 }
 .content-container {
     display: flex;
+    margin-top: 20px;
 }
 .table {
     flex: 2;
-    border-top: 3px solid lightslategray;
+    border-top: 3px solid rgb(176, 179, 182);
     margin-bottom: 20px;
+}
+.table caption {
+    font-size: 1.3rem;
+    text-align: left;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    border-top: 2px solid rgb(209, 209, 209);
 }
 .aside-right {
     flex: 1;
