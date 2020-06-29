@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.content {
+    display: flex;
+    height: 100vh;
+}
+.menu {
+    width: 250px;
+    background-color: rgb(65, 78, 78);
+}
+.content.users {
+    flex: 1;
+    background-color: rgb(223, 223, 223);
+}
+.header {
+    height: 60px;
+    width: 100%;
+    display: flex;
+}
+.header.menu {
+    width: 250px;
+    height: 60px;
+    background-color: rgb(52, 196, 129);
+}
+.header.menu {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+.header-users {
+    height: 60px;
+    flex: 1;
+    background-color: rgb(63, 223, 148);
+    
+}
