@@ -1,4 +1,4 @@
-@media screen and (max-width:800px) {
+@media screen and (max-width:850px) {
     .menu {
         display: none;
     }
@@ -17,5 +17,36 @@
     }
     .icon-user p {
         display: none;
+    }
+    .content-header {
+        display: flex;
+        flex-direction: column;
+    }
+    .title-content-header h1 small {
+        margin-left: 15px;
+        color: rgb(89, 92, 95);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 0.8rem;
+    }
+    .breadcrumb {
+        margin-top: 5px;
+        display: flex;
+        list-style: none;
+        align-items: center;
+        font-size: 0.8rem;
+        background-color: rgb(163, 163, 163);
+    }
+    .breadcrumb li {
+        padding: 10px;
+    }
+    .breadcrumb li.active {
+        color: rgb(67, 69, 71);
+    }
+    .content-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .aside-right {
+        margin-left: 0;
     }
 }
