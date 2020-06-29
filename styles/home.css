@@ -146,15 +146,22 @@ section {
 .info li {
     width: 50%;
     height: 90px;
-    border: 1px solid black;
+    border: none;
     cursor: default;
+    border-radius: 6px;
 }
 #new-users {
     background-color: rgb(50, 50, 177);
     margin-right: 5px;
 }
+#new-users:hover {
+    background-color: rgb(72, 72, 197);
+}
 #n-admins {
     background-color: rgb(230, 113, 18);
+}
+#n-admins:hover {
+    background-color: rgb(241, 129, 36);
 }
 #new-users, #n-admins {
     display: flex;
