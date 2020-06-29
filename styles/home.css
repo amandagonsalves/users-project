@@ -24,10 +24,11 @@
     height: 60px;
     background-color: rgb(52, 196, 129);
 }
-.header.menu {
+.header.menu h1 {
     text-transform: uppercase;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .header-users {
     height: 60px;
