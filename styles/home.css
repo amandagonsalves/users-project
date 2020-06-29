@@ -66,6 +66,9 @@ h1, p {
     display: flex;
     flex-direction: column;
 }
+.text-online p {
+    font-size: 0.8rem;
+}
 .title-menu {
     background-color: rgb(40, 48, 48);
     font-size: 0.5rem;
