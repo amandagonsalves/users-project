@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+h1, p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .content {
     display: flex;
     height: 100vh;
@@ -54,4 +57,30 @@
     width: 30px;
     height: 30px;
     border-radius: 100%;
+}
+.menu .icon-user {
+    height: 80px;
+    margin-left: 10px;
+}
+.text-user {
+    display: flex;
+    flex-direction: column;
+}
+.title-menu {
+    background-color: rgb(40, 48, 48);
+    font-size: 0.5rem;
+    text-transform: uppercase;
+}
+.title-menu h1 {
+    padding: 10px;
+}
+.text-menu p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.text-menu span {
+    margin: 10px;
+}
+.text-menu-users {
+    border-left: 5px solid rgb(39, 189, 89);
 }
