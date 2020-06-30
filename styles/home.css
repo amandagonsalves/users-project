@@ -197,8 +197,19 @@ section {
     flex-direction: column;
     margin: 30px 15px 30px 15px;
 }
-.form-group input, .form-group select, .form-group radio {
+.form-group input, .form-group select, .form-group radio, #btn-submit {
     padding: 8px;
     outline: none;
     border: 1px solid rgb(174, 182, 190);
+    border-radius: 4px;
+}
+#btn-submit {
+    padding: 10px;
+    background-color: rgb(50, 50, 177);
+    border: 1px solid rgb(13, 24, 36);
+    width: 100px;
+}
+#btn-submit:hover {
+    background-color: rgb(92, 92, 204);
+    cursor: pointer;
 }

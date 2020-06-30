@@ -58,4 +58,10 @@
     .table caption {
         font-size: 1.1rem;
     }
+    
+}
+@media screen and (max-width:600px) {
+    #btn-submit {
+        width: 100%;
+    }
 }
