@@ -122,8 +122,9 @@ section {
 }
 .table {
     flex: 2;
-    border-top: 3px solid rgb(176, 179, 182);
+    background-color: rgb(255,255,255);
     margin-bottom: 20px;
+    border-bottom: 2px solid rgb(209, 209, 209);
 }
 .table caption {
     font-size: 1.3rem;
@@ -131,8 +132,8 @@ section {
     background-color: white;
     padding: 10px;
     border-radius: 5px 5px 0 0;
-    border-top: 2px solid rgb(209, 209, 209);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-top: 2px solid rgb(209, 209, 209);
 }
 .aside-right {
     flex: 1;
@@ -176,4 +177,21 @@ section {
     font-weight: 700;
     font-size: 2.5rem;
     color: white;
+}
+.register {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255,255,255);
+    margin-top: 20px;
+    border-top: 3px solid rgb(72, 72, 197);
+    border-radius: 3px 3px 0 0;
+}
+.register label {
+    font-size: 1rem;
+    color: rgb(71, 80, 88);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
 }
