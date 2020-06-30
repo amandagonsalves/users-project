@@ -4,6 +4,10 @@ class UserController {
         this.tableEl = document.getElementById(tableId);
         this.onSubmit();
     }
+    getPhoto() {
+        fileReader = new fileReader();
+
+    }
     onSubmit() {
         this.formEl.addEventListener('submit', e => {
             e.preventDefault();
@@ -46,7 +50,6 @@ class UserController {
             <td>${dataUser.name}</td>
             <td>${dataUser.email}</td>
             <td>${(dataUser.admin) ? 'Sim' : 'Não'}</td>
-            <td>${dataUser.birth}</td>
             <td>
                 <button type="button" class="btn btn-primary btn-xs btn-flat">Editar</button>
                 <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>

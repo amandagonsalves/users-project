@@ -181,8 +181,6 @@ section {
     color: white;
 }
 .register {
-    display: flex;
-    flex-direction: column;
     background-color: rgb(255,255,255);
     margin-top: 20px;
     border-top: 3px solid rgb(72, 72, 197);
@@ -221,6 +219,8 @@ section {
 .register h1 {
     font-family: 'Open Sans Condensed', sans-serif;
     padding: 10px;
+    color: royalblue;
+    font-weight: 800;
 }
 /*====table users=====*/
 .img-circle {
@@ -231,6 +231,10 @@ section {
 #table-users {
     text-align: center;
 }
+#table-users tr td {
+    border: 1px solid rgb(50, 50, 177);
+    padding: 10px;
+}
 .btn {
     border: none;
     outline: none;
@@ -239,12 +243,10 @@ section {
     color: white;
     cursor: pointer;
 }
-.btn:hover {
-    border: ;
-}
 .btn-primary {
     background-color: rgb(92, 92, 204);
 }
 .btn-danger {
     background-color: red;
 }
+/*====================*/
