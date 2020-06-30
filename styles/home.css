@@ -48,16 +48,24 @@ body {
     height: 30px;
     border-radius: 100%;
 }
-.menu .icon-user {
+.icon-user-menu{
+    display: flex;
+    align-items: center;
     height: 80px;
-    margin-left: 10px;
+    margin: 10px;
+}
+.icon-user-menu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 15px;
 }
 .text-user {
     display: flex;
     flex-direction: column;
 }
-.text-online p {
-    font-size: 0.8rem;
+.text-user p {
+    padding: 4px;
 }
 .title-menu {
     background-color: rgb(40, 48, 48);

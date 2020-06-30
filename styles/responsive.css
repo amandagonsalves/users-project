@@ -4,12 +4,25 @@
         left: -80vh;
         top: 0;
         height: 100vh;
+        z-index: 2;
+        transition: 200ms left linear;
+    }
+    .backdrop.open {
+        background-color: rgba(0,0,0,.8);
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        transition: 400ms;
     }
     .header {
         height: 80px;
         width: 100%;
         display: flex;
         flex-direction: column;
+        
     }
     .header.menu {
         width: 100%;
