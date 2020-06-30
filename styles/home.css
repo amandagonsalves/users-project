@@ -9,7 +9,6 @@ h1, p, a {
 }
 .content {
     display: flex;
-    height: 100vh;
 }
 .menu {
     width: 250px;
@@ -185,13 +184,21 @@ section {
     margin-top: 20px;
     border-top: 3px solid rgb(72, 72, 197);
     border-radius: 3px 3px 0 0;
+    width: 100%;
 }
 .register label {
     font-size: 1rem;
     color: rgb(71, 80, 88);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 5px;
 }
 .form-group {
     display: flex;
     flex-direction: column;
+    margin: 30px 15px 30px 15px;
+}
+.form-group input, .form-group select, .form-group radio {
+    padding: 8px;
+    outline: none;
+    border: 1px solid rgb(174, 182, 190);
 }

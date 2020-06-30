@@ -22,6 +22,9 @@
         display: flex;
         flex-direction: column;
     }
+    .content.users {
+        width: 100%;
+    }
     .title-content-header h1 small {
         margin-left: 15px;
         color: rgb(89, 92, 95);
