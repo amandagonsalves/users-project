@@ -13,3 +13,4 @@ function countries() {
     });
 }
 countries();
+let userController = new userController('form-user-create', 'table-users'); 
