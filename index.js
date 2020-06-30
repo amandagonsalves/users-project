@@ -13,3 +13,6 @@ function countries() {
     });
 }
 countries();
+document.querySelector('.icon-menu').addEventListener('click', e => {
+    document.querySelector('.menu').classList.add('open')
+})

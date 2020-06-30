@@ -1,6 +1,9 @@
 @media screen and (max-width:1000px) {
     .menu {
-        display: none;
+        position: fixed;
+        left: -80vh;
+        top: 0;
+        height: 100vh;
     }
     .header {
         height: 80px;
@@ -57,6 +60,9 @@
     }
     .table caption {
         font-size: 1.1rem;
+    }
+    .open {
+        left: 0;
     }
     
 }
