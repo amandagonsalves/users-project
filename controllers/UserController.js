@@ -9,11 +9,47 @@ class UserController {
 
     }
     onSubmit() {
-        this.formEl.addEventListener('submit', e => {
-            e.preventDefault();
-            console.log('ola')
-            this.addLine(this.getValues())
-        })
+        this.formEl.addEventListener("submit", event => {
+            event.preventDefault();
+            let btn = this.formEl.querySelector('[type=submit]');
+            btn.disabled = true;
+            let values = this.getValues();
+            this.getPhoto().then(
+                content => {
+                    values.photo = content;
+                    this.addLine(values);
+                    this.formEl.reset();
+                    btn.disabled = false
+                }, 
+                e => {
+                    console.log(e)
+                }
+            );
+        });
+    }
+    getPhoto() {
+        return new Promise((resolve, reject) => {
+            let fileReader = new FileReader();
+            let elements = [...this.formEl.elements].filter(item => {
+                if (item.name === 'photo') {
+                    return item;
+                };
+            })
+            let file = elements[0].files[0];
+            fileReader.onload = () => {
+                resolve(fileReader.result)
+            };
+            fileReader.onerror = (e) => {
+                reject(e);
+            }
+            if(file) {
+                fileReader.readAsDataURL(file);
+            } else {
+                resolve('dist/img/boxed-bg.jpg');
+            }
+            
+        });
+
     }
     getValues() {
         let user = {};
