@@ -222,3 +222,29 @@ section {
     font-family: 'Open Sans Condensed', sans-serif;
     padding: 10px;
 }
+/*====table users=====*/
+.img-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
+#table-users {
+    text-align: center;
+}
+.btn {
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    padding: 3px;
+    color: white;
+    cursor: pointer;
+}
+.btn:hover {
+    border: ;
+}
+.btn-primary {
+    background-color: rgb(92, 92, 204);
+}
+.btn-danger {
+    background-color: red;
+}

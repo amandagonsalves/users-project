@@ -4,8 +4,39 @@ class UserController {
         this.tableEl = document.getElementById(tableId);
         this.onSubmit();
     }
+    onSubmit() {
+        this.formEl.addEventListener('submit', e => {
+            e.preventDefault();
+            console.log('ola')
+            this.addLine(this.getValues())
+        })
+    }
     getValues() {
         let user = {};
+        [...this.formEl.elements].forEach((field, index) => {
+            if(field.name === 'gender') {
+                if(field.checked) {
+                    user[field.name] = field.value;
+                    console.log(user[field.name] = field.value)
+                }
+            } else if(field.name === 'admin') {
+                user[field.name] = field.checked;
+                console.log(user[field.name] = field.checked)
+            } else {
+                user[field.name] = field.value;
+                console.log(user[field.name] = field.value)
+            }
+        });
+        return new User(
+            user.name,
+            user.gender,
+            user.birth,
+            user.country,
+            user.email,
+            user.password,
+            user.photo,
+            user.admin
+        );
 
     }
     addLine(dataUser) {
