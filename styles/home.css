@@ -192,16 +192,19 @@ section {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 5px;
 }
-.form-group {
+.form-group, .checkbox {
     display: flex;
     flex-direction: column;
     margin: 30px 15px 30px 15px;
 }
-.form-group input, .form-group select, .form-group radio, #btn-submit {
+.form-group input, .form-group select, .form-group radio, #btn-submit{
     padding: 8px;
     outline: none;
     border: 1px solid rgb(174, 182, 190);
     border-radius: 4px;
+}
+#inputPhoto {
+    border: none;
 }
 #btn-submit {
     padding: 10px;
