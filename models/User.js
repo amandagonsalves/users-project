@@ -38,4 +38,32 @@ class User {
         return this._admin;
     }
 
+    set register(value) {
+        this._register = value;
+    }
+    set name(value) {
+        this._name = value;
+    }
+    set gender(value) {
+        this._gender = value;
+    }
+    set birth(value) {
+        this._birth = value;
+    }
+    set country(value) {
+        this._country = value;
+    }
+    set email(value) {
+        this._email = value;
+    }
+    set password(value) {
+        this._password = value;
+    }
+    set photo(value) {
+        this._photo = value;
+    }
+    set admin(value) {
+        this._admin = value;
+    }
+
 }
