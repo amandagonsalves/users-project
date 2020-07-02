@@ -45,7 +45,7 @@ class UserController {
             if(file) {
                 fileReader.readAsDataURL(file);
             } else {
-                resolve('dist/img/boxed-bg.jpg');
+                resolve('/img/boxed-bg.jpg');
             }
             
         });
