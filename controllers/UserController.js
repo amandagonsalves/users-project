@@ -10,6 +10,7 @@ class UserController {
             let btn = this.formEl.querySelector('[type=submit]');
             btn.disabled = true;
             let values = this.getValues();
+            if(!values) return false;
             this.getPhoto().then(
                 content => {
                     values.photo = content;
