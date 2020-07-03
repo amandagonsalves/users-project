@@ -1,4 +1,4 @@
-let userController = new UserController('form-user-create', 'table-users');
+let userController = new UserController('form-user-create', 'form-user-update', 'table-users');
 function countries() {
     countrySelect = document.querySelector('#selectCountry');
     fetch("https://restcountries.eu/rest/v2/all")
