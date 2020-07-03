@@ -97,8 +97,8 @@ class UserController {
             <td>${Utils.dateFormat(dataUser.register)}</td>
             <td>${(dataUser.admin) ? 'Sim' : 'Não'}</td>
             <td>
-                <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat">Editar</button>
-                <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>
+                <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat"><i class="fa fa-edit"></i></button>
+                <button type="button" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-times"></i></button>
             </td>
         `;
         tr.querySelector('.btn-edit').addEventListener('click', e => {
