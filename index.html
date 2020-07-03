@@ -21,7 +21,7 @@
                     <img src="/img/avatar3.png" alt="">
                     <p>Nome de usuário</p>
                 </div>
-                
+
             </div>
         </header>
 
@@ -89,60 +89,120 @@
                                     <p>Administradores</p>
                                 </li>
                             </div>
-                            <div class="register">
-                                <h1>Novo usuário</h1>
-                                <hr>
-                                <form action="" id="form-user-create">
-                                    <div class="form-group">
-                                        <label for="name">Nome</label>
-                                        <input type="text" name="name" id="inputName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="gender">Gênero</label>
-                                        <div class="radio">
-                                            <label for="inputGenderM">
-                                                <input type="radio" id="inputGenderM" name="gender" value="M" checked="checked">
-                                                Masculino</label>
+                            <div class="box box-succes">
+                                <div class="register">
+                                    <h1>Novo usuário</h1>
+                                    <hr>
+                                    <form action="" id="form-user-create">
+                                        <div class="form-group">
+                                            <label for="name">Nome</label>
+                                            <input type="text" name="name" id="inputName">
                                         </div>
-                                        <div class="radio">
-                                            <label for="inputGenderF">
-                                                <input type="radio" id="inputGenderF" name="gender" value="F">
-                                                Feminino</label>
+                                        <div class="form-group">
+                                            <label for="gender">Gênero</label>
+                                            <div class="radio">
+                                                <label for="inputGenderM">
+                                                    <input type="radio" id="inputGenderM" name="gender" value="M" checked="checked">
+                                                    Masculino</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="inputGenderF">
+                                                    <input type="radio" id="inputGenderF" name="gender" value="F">
+                                                    Feminino</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputBirth">Data de nascimento</label>
-                                        <input type="date" name="birth" id="inputBirth">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputCountry">País</label>
-                                        <select name="country" id="selectCountry">
-                                            <option value="0">Selecione um país</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail">E-mail</label>
-                                        <input type="email" name="email" id="inputEmail">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPassword">Senha</label>
-                                        <input type="password" name="password" id="inputPassword">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPhoto">Foto</label>
-                                        <input type="file" name="photo" id="inputPhoto">
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="admin" id="exampleInputAdmin">
-                                            Administrador
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" id="btn-submit">Salvar</button>
-                                    </div>
-                                </form>
+                                        <div class="form-group">
+                                            <label for="inputBirth">Data de nascimento</label>
+                                            <input type="date" name="birth" id="inputBirth">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputCountry">País</label>
+                                            <select name="country" id="selectCountry">
+                                                <option value="0">Selecione um país</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail">E-mail</label>
+                                            <input type="email" name="email" id="inputEmail">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword">Senha</label>
+                                            <input type="password" name="password" id="inputPassword">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPhoto">Foto</label>
+                                            <input type="file" name="photo" id="inputPhoto">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="admin" id="exampleInputAdmin">
+                                                Administrador
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" id="btn-submit">Salvar</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+                            <div class="box box-primary" style="display:none">
+                                <div class="register">
+                                    <h1>Editar usuário</h1>
+                                    <hr>
+                                    <form action="" id="form-user-update">
+                                        <div class="form-group">
+                                            <label for="name">Nome</label>
+                                            <input type="text" name="name" id="inputName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gender">Gênero</label>
+                                            <div class="radio">
+                                                <label for="inputGenderM">
+                                                    <input type="radio" id="inputGenderM" name="gender" value="M" checked="checked">
+                                                    Masculino</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label for="inputGenderF">
+                                                    <input type="radio" id="inputGenderF" name="gender" value="F">
+                                                    Feminino</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputBirth">Data de nascimento</label>
+                                            <input type="date" name="birth" id="inputBirth">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputCountry">País</label>
+                                            <select name="country" id="selectCountry">
+                                                <option value="0">Selecione um país</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail">E-mail</label>
+                                            <input type="email" name="email" id="inputEmail">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword">Senha</label>
+                                            <input type="password" name="password" id="inputPassword">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPhoto">Foto</label>
+                                            <input type="file" name="photo" id="inputPhoto">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="admin" id="exampleInputAdmin">
+                                                Administrador
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" id="btn-submit" class="btn-primary">Salvar</button>
+                                            <button type="submit" id="btn-submit" class="btn-default">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>
