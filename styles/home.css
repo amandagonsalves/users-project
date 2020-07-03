@@ -225,8 +225,7 @@ section {
 }
 #table-users {
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    
 }
 #table-users tr td {
     border: 1px solid rgb(50, 50, 177);
@@ -252,4 +251,12 @@ section {
 }
 .has-error label {
     color: red;
+}
+.btn-default {
+    background-color: lightslategray;
+    padding: 10px;
+    border: 1px solid rgb(13, 24, 36);
+    border-radius: 5px;
+    width: 100px;
+    margin-top: 10px;
 }
