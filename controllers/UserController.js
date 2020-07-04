@@ -139,7 +139,7 @@ class UserController {
             <td>${(dataUser.admin) ? 'Sim' : 'Não'}</td>
             <td>
                 <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat"><i class="fa fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-danger btn-delete btn-xs btn-flat"><i class="fa fa-times"></i></button>
             </td>
         `;
         this.addEventsTr(tr);
@@ -147,6 +147,11 @@ class UserController {
         this.updateCount();
     }
     addEventsTr(tr) {
+        tr.querySelector('.btn-delete').addEventListener('click', e => {
+            if(confirm('Deseja realmente excluir?')) {
+                tr.remove();
+            }
+        });
         tr.querySelector('.btn-edit').addEventListener('click', e => {
             let json = JSON.parse(tr.dataset.user);
             this.formUpdateEl.dataset.trIndex = tr.sectionRowIndex;
