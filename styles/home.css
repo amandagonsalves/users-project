@@ -265,3 +265,7 @@ section {
     width: 100px;
     margin-top: 10px;
 }
+.photo {
+    max-height: 128px;
+    max-width: 128px;
+}
