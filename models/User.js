@@ -74,7 +74,6 @@ class User {
                 default:
                     this[name] = json[name];
             }
-            this[name] = json[name];
         }
     }
 

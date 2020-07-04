@@ -61,7 +61,7 @@ class UserController {
             this.getPhoto(this.formEl).then(
                 content => {
                     values.photo = content;
-                    this.insert(values)
+                    this.insert(values);
                     this.addLine(values);
                     this.formEl.reset();
                     btn.disabled = false
@@ -133,7 +133,7 @@ class UserController {
         if(sessionStorage.getItem('users')) {
             users = JSON.parse(sessionStorage.getItem('users'))
         }
-        return users
+        return users;
     }
     selectAll() {
         let users = this.getUsersStorage();
@@ -146,7 +146,7 @@ class UserController {
     insert(data) {
         let users = this.getUsersStorage();
         users.push(data);
-        sessionStorage.setItem('user',JSON.stringify(users));
+        sessionStorage.setItem('users',JSON.stringify(users));
     }
     addLine(dataUser) {
         let tr = document.createElement('tr');
