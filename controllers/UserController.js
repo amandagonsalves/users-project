@@ -148,15 +148,17 @@ class UserController {
         if(tr === null) tr = document.createElement('tr');
         tr.dataset.user = JSON.stringify(dataUser);
         tr.innerHTML = `
-            <td><img src="${dataUser.photo}" alt="User Image" class="img-circle img-sm"></td>
-            <td>${dataUser.name}</td>
-            <td>${dataUser.email}</td>
-            <td>${Utils.dateFormat(dataUser.register)}</td>
-            <td>${(dataUser.admin) ? 'Sim' : 'Não'}</td>
-            <td>
-                <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat"><i class="fa fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-delete btn-xs btn-flat"><i class="fa fa-times"></i></button>
-            </td>
+            <div class="line">
+                <li><img src="${dataUser.photo}" alt="User Image" class="img-circle img-sm"></li>
+                <li><b>Nome</b>: ${dataUser.name}</li>
+                <li><b>Email</b>: ${dataUser.email}</li>
+                <li><b>Registro</b>: ${Utils.dateFormat(dataUser.register)}</li>
+                <li><b>Admin</b>: ${(dataUser.admin) ? 'Sim' : 'Não'}</li>
+                <li>
+                    <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat"><i class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger btn-delete btn-xs btn-flat"><i class="fa fa-times"></i></button>
+                </li>
+            </div>
         `;
         this.addEventsTr(tr);
         return tr;

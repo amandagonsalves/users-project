@@ -225,11 +225,16 @@ section {
 }
 #table-users {
     text-align: center;
-    
 }
-#table-users tr td {
-    border: 1px solid rgb(50, 50, 177);
+.line {
+    border: 2px solid rgb(194, 194, 194);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: rgb(236, 245, 242);
+}
+#table-users tr li {
     padding: 10px;
+    display: block;
 }
 .btn {
     border: none;
