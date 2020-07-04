@@ -5,6 +5,7 @@ class UserController {
         this.tableEl = document.getElementById(tableId);
         this.onSubmit();
         this.onEdit();
+        this.selectAll();
     }
     onEdit() {
         document.querySelector('#box-user-update .btn-cancel').addEventListener('click', e => {
@@ -60,6 +61,7 @@ class UserController {
             this.getPhoto(this.formEl).then(
                 content => {
                     values.photo = content;
+                    this.insert(values)
                     this.addLine(values);
                     this.formEl.reset();
                     btn.disabled = false
@@ -125,7 +127,26 @@ class UserController {
             user.photo,
             user.admin
         );
-
+    }
+    getUsersStorage() {
+        let users = [];
+        if(sessionStorage.getItem('users')) {
+            users = JSON.parse(sessionStorage.getItem('users'))
+        }
+        return users
+    }
+    selectAll() {
+        let users = this.getUsersStorage();
+        users.forEach(dataUser => {
+            let user = new User();
+            user.loadFromJSON(dataUser);
+            this.addLine(user)
+        })
+    }
+    insert(data) {
+        let users = this.getUsersStorage();
+        users.push(data);
+        sessionStorage.setItem('user',JSON.stringify(users));
     }
     addLine(dataUser) {
         let tr = document.createElement('tr');
