@@ -35,14 +35,13 @@ class UserController {
                         <td>${(result._admin) ? 'Sim' : 'Não'}</td>
                         <td>
                             <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat"><i class="fa fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-times"></i></button>
+                            <button type="button" class="btn btn-danger btn-delete btn-xs btn-flat"><i class="fa fa-times"></i></button>
                         </td>
                         `;
                     this.addEventsTr(tr);
                     this.updateCount();
                     btn.disabled = false;
                     this.formUpdateEl.reset();
-
                     this.showPanelCreate();
                 },
                 e => {
