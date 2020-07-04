@@ -15,7 +15,6 @@ class UserController {
             let btn = this.formUpdateEl.querySelector('[type=submit]');
             btn.disabled = true;
             let values = this.getValues(this.formUpdateEl);
-            console.log(values);
             let index = this.formUpdateEl.dataset.trIndex;
             let tr = this.tableEl.rows[index];
             tr.dataset.user = JSON.stringify(values);
@@ -30,6 +29,8 @@ class UserController {
                 <button type="button" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-times"></i></button>
             </td>
             `;
+            this.addEventsTr(tr);
+            this.updateCount();
         })
     }
     onSubmit() {
@@ -123,6 +124,11 @@ class UserController {
                 <button type="button" class="btn btn-danger btn-xs btn-flat"><i class="fa fa-times"></i></button>
             </td>
         `;
+        this.addEventsTr(tr);
+        this.tableEl.appendChild(tr); 
+        this.updateCount();
+    }
+    addEventsTr(tr) {
         tr.querySelector('.btn-edit').addEventListener('click', e => {
             let json = JSON.parse(tr.dataset.user);
             let form = document.querySelector('#form-user-update');
@@ -148,9 +154,6 @@ class UserController {
             }
             this.showPanelUpdate();
         })
-
-        this.tableEl.appendChild(tr); 
-        this.updateCount();
     }
     showPanelCreate() {
         document.querySelector('#box-user-create').style.display = 'block'
