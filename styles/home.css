@@ -84,6 +84,10 @@ body {
 }
 .text-menu-users {
     border-left: 5px solid rgb(39, 189, 89);
+    cursor: pointer;
+}
+.text-menu-users:hover {
+    border-left: 5px solid rgb(137, 224, 166);
 }
 section {
     width: 95%;
@@ -219,12 +223,13 @@ section {
 }
 /*====table users=====*/
 .img-circle {
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
 }
 #table-users {
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .line {
     border: 2px solid rgb(194, 194, 194);
@@ -240,19 +245,22 @@ section {
     border: none;
     outline: none;
     border-radius: 2px;
-    padding: 3px;
     color: white;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
+    margin: 5px;
 }
-.btn:hover {
-    background-color: rgba(0,0,0,0.6);
-}
+
 .btn-primary {
     background-color: rgb(92, 92, 204);
+    border: 1px solid rgb(92, 92, 204);
+}
+.btn-primary:hover, .btn-danger:hover {
+    border: 1px solid rgb(59, 59, 59);
 }
 .btn-danger {
+    border: 1px solid red;
     background-color: red;
 }
 /*====================*/
