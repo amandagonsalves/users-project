@@ -51,6 +51,9 @@ header a span {
 .content-timeline {
     flex: 2;
 }
+.about, .content-timeline {
+    border-top: 5px solid rgb(128, 180, 240);
+}
 .contentProfile, .about, .content-timeline  {
     background-color: white;
     margin: 10px;
@@ -74,7 +77,7 @@ header a span {
 }
 .contentProfile .listInfo {
     list-style: none;
-    width: 100%;
+    width: 90%;
     text-align: center;
 }
 .contentProfile .listInfo li {
@@ -94,7 +97,6 @@ header a span {
     cursor: pointer;
 }
 .about {
-    border-top: 5px solid lightslategrey;;
     margin-top: 30px;
 }
 .about h1 {
@@ -125,9 +127,10 @@ header a span {
     border-radius: 6px 6px 0 0;
 }
 .timeline li {
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .timeline li:hover {
-    color: rgb(70, 170, 112);
+    color: rgb(27, 148, 77);
 }
