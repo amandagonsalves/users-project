@@ -97,12 +97,11 @@ header a span {
 }
 .about {
     border-top: 5px solid lightslategrey;;
+    margin-top: 30px;
 }
 .about h1 {
-    margin: 20px 10px 20px 10px;
+    margin: 20px 10px 10px 10px;
     color: rgb(42, 156, 90);
-}
-.about h1, .aboutMe li {
     border-bottom: 1px solid lightslategrey;
 }
 .aboutMe {
@@ -113,6 +112,7 @@ header a span {
 }
 .aboutMe li {
     padding: 10px;
+    margin-bottom: 15px;
 }
 .aboutMe li h4 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
