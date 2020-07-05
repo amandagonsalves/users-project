@@ -95,6 +95,10 @@ header a span {
     border: 1px solid rgb(49, 119, 66);
     outline: none;
     cursor: pointer;
+    border-radius: 5px;
+}
+.btn-follow:hover {
+    background-color: rgb(91, 236, 152);
 }
 .about {
     margin-top: 30px;
