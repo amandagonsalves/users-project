@@ -53,9 +53,10 @@ header a span {
     flex: 2;
     background-color: rgb(124, 111, 111);
 }
-.contentProfile {
+.contentProfile, .about {
     background-color: white;
     margin: 10px;
+    border-radius: 6px;
 }
 .contentProfile .listProfile {
     display: flex;
@@ -82,9 +83,22 @@ header a span {
     border-bottom: 1px solid lightslategray;
     padding: 20px;
 }
+.contentProfile .listInfo li, .btn-follow, .about h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .btn-follow {
     padding: 10px;
     margin: 20px;
-    width: 90px;
-
+    width: 110px;
+    background-color: rgb(55, 207, 118);
+    border: 1px solid rgb(49, 119, 66);
+    outline: none;
+    cursor: pointer;
+}
+.about {
+    border-top: 5px solid lightslategrey;;
+}
+.about h1 {
+    margin: 20px 10px 20px 10px;
+    border-bottom: 1px solid lightslategrey;
 }
