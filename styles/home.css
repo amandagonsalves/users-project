@@ -229,8 +229,8 @@ section {
 .line {
     border: 2px solid rgb(194, 194, 194);
     border-radius: 8px;
-    margin-bottom: 15px;
     background-color: rgb(236, 245, 242);
+    margin: 15px;
 }
 #table-users tr li {
     padding: 10px;
