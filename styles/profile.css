@@ -7,7 +7,7 @@ h1, p, a {
     text-decoration: none;
     color: black;
 }
-body {
+body, .profile{
     background-color: rgb(241, 241, 241);
 }
 header {
@@ -34,7 +34,7 @@ header a span {
     display: flex;
 }
 .title {
-    margin: 30px 10px 30px 10px; 
+    margin: 20px 10px 10px 10px; 
     display: flex;
     justify-content: space-between;
 }
@@ -47,13 +47,11 @@ header a span {
 }
 .profile {
     flex: 1;
-    background-color: rgb(233, 103, 103);
 }
 .content-timeline {
     flex: 2;
-    background-color: rgb(124, 111, 111);
 }
-.contentProfile, .about {
+.contentProfile, .about, .content-timeline  {
     background-color: white;
     margin: 10px;
     border-radius: 6px;
@@ -117,4 +115,19 @@ header a span {
 .aboutMe li h4 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-bottom: 5px;
+}
+.timeline {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    background-color: white;
+    text-align: center;
+    border-radius: 6px 6px 0 0;
+}
+.timeline li {
+    padding: 15px;
+    cursor: pointer;
+}
+.timeline li:hover {
+    color: rgb(70, 170, 112);
 }

@@ -3,4 +3,7 @@
         display: flex;
         flex-direction: column;
     }
+    .timeline {
+        margin-top: 10px;
+    }
 }
