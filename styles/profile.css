@@ -190,7 +190,13 @@ header a span {
     padding: 5;
 }
 /*===timeline====*/
-.email {
+.timeline-pub {
+    border-left: 3px solid rgb(163, 163, 163);
+    margin-left: 5px;
+    /* display: block; */
+    display: none;
+}
+.email, .request {
     margin: 20px;background-color: rgb(235, 235, 235);
     border: 1px solid lightsteelblue;
 }
@@ -227,4 +233,43 @@ header a span {
     background-color: rgb(185, 25, 25);
     border: 1px solid rgb(185, 25, 25);
 }
+.request {
+    display: flex;
+    align-items: center;
+}
+.request img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin: 10px;
+    border: 2px solid gray;
+}
 /*===settings====*/
+.settings-pub {
+    display: block;
+}
+.settings-pub form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    align-items: center;
+}
+.settings-pub form input[type=checkbox] {
+    margin-left: 20px;
+}
+.settings-pub .form-group {
+    margin: 20px;
+}
+.settings-pub .form-group input {
+    width: 100%;
+    padding: 10px;
+}
+#btn-updateAboutMe {
+    padding: 10px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 5px;
+    background-color: rgb(63, 223, 148);
+    box-shadow: 2px 2px rgb(187, 187, 187);
+}
