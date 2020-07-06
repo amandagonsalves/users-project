@@ -148,6 +148,9 @@ header a span {
     margin-top: 10px;
 }
 /*===activity====*/
+.activity-pub {
+    display: none;
+}
 #activity-users {
     border: 1px solid rgb(207, 207, 207);
     margin-bottom: 20px;
@@ -187,4 +190,18 @@ header a span {
     padding: 5;
 }
 /*===timeline====*/
+.email {
+    margin: 20px;background-color: rgb(235, 235, 235);
+    border: 1px solid lightsteelblue;
+}
+#email-text {
+    text-align: justify;
+    margin: 20px;
+}
+.email-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid lightslategrey;
+}
 /*===settings====*/
