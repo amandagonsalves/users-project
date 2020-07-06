@@ -96,6 +96,7 @@ header a span {
 }
 .listInfo li {
     font-family: 'Abel', sans-serif;
+    font-size: 0.9rem;
 }
 .about h1 {
     font-family: 'Fondamento', cursive;
@@ -126,6 +127,7 @@ header a span {
     display: flex;
     list-style: none;
     justify-content: space-evenly;
+    align-items: center;
     background-color: white;
     text-align: center;
     border-radius: 6px 6px 0 0;
@@ -263,13 +265,15 @@ header a span {
 }
 .settings-pub .form-group input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
+    border: 1px solid rgb(170, 170, 170);
+    outline: none;
+    border-radius: 3px;
 }
 #btn-updateAboutMe {
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(36, 121, 85);
     outline: none;
     border-radius: 5px;
     background-color: rgb(63, 223, 148);
-    box-shadow: 2px 2px rgb(187, 187, 187);
 }
