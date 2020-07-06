@@ -35,6 +35,18 @@ function renderCard(character) {
 characters.forEach(character => {
     renderCard(character);
 }); 
-document.querySelector('.btn-follow').addEventListener('click', e => {
-    console.log('ola')
+document.querySelector('#activity').addEventListener('click', e => {
+    document.querySelector('.activity-pub').style.display = 'block'
+    document.querySelector('.timeline-pub').style.display = 'none';
+    document.querySelector('.settings-pub').style.display = 'none';
+})
+document.querySelector('#timeline').addEventListener('click', e => {
+    document.querySelector('.activity-pub').style.display = 'none'
+    document.querySelector('.timeline-pub').style.display = 'block';
+    document.querySelector('.settings-pub').style.display = 'none';
+})
+document.querySelector('#settings').addEventListener('click', e => {
+    document.querySelector('.activity-pub').style.display = 'none'
+    document.querySelector('.timeline-pub').style.display = 'none';
+    document.querySelector('.settings-pub').style.display = 'block';
 })

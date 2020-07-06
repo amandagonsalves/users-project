@@ -151,7 +151,7 @@ header a span {
 }
 /*===activity====*/
 .activity-pub {
-    display: none;
+    display: block;
 }
 #activity-users {
     border: 1px solid rgb(207, 207, 207);
@@ -195,7 +195,6 @@ header a span {
 .timeline-pub {
     border-left: 3px solid rgb(163, 163, 163);
     margin-left: 5px;
-    /* display: block; */
     display: none;
 }
 .email, .request {
@@ -248,7 +247,7 @@ header a span {
 }
 /*===settings====*/
 .settings-pub {
-    display: block;
+    display: none;
 }
 .settings-pub form {
     display: flex;
@@ -270,10 +269,14 @@ header a span {
     outline: none;
     border-radius: 3px;
 }
+.settings-pub .form-group input:hover, .settings-pub .form-group input:focus {
+    border: 1px solid rgb(44, 170, 97);
+}
 #btn-updateAboutMe {
     padding: 10px;
     border: 1px solid rgb(36, 121, 85);
     outline: none;
     border-radius: 5px;
     background-color: rgb(63, 223, 148);
+    cursor: pointer;
 }
