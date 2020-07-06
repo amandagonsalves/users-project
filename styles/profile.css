@@ -17,7 +17,11 @@ header {
     background-color: rgb(63, 223, 148);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+header i {
+    margin-left: 10px;
+    cursor: pointer;
 }
 header a {
     display: flex;
@@ -58,6 +62,8 @@ header a span {
     background-color: white;
     margin: 10px;
     border-radius: 6px;
+    box-shadow: 2px 2px rgb(221, 221, 221);
+    border: 1px solid rgb(212, 212, 212);
 }
 .contentProfile .listProfile {
     display: flex;
@@ -81,8 +87,12 @@ header a span {
     text-align: center;
 }
 .contentProfile .listInfo li {
-    border-bottom: 1px solid lightslategray;
     padding: 20px;
+}
+.listInfo div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightslategray;
 }
 .contentProfile .listInfo li, .btn-follow, .about h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
