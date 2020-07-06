@@ -16,15 +16,18 @@ function renderCard(character) {
     let pub = document.querySelector('.activity-pub');
     let div = document.createElement('div');
     div.innerHTML = `
-        <div id="profile-head">
-            <img src="${character.imgProfile}" class="img-circle"/>
-            <p>${character.name}</p>
-        </div>
-        Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.
-        <div id="icons-activity">
-            <i class="fa fa-share"></i>
-            <i class="fa fa-like"></i>
-            <i class="fa fa-comment"></i>
+        <div id="activity-users">
+            <div id="profile-head">
+                <img src="${character.imgProfile}" class="img-circle"/>
+                <p>${character.name}</p>
+            </div>
+            <p>Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.</p>
+            <div id="icons-activity">
+                <i class="fa fa-share"></i>
+                <i class="fa fa-like"></i>
+                <i class="fa fa-comment"></i>
+            </div>
+            <input type="text" placeholder="Adicione um comentário"/>
         </div>
     `
     pub.appendChild(div);

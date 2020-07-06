@@ -85,6 +85,7 @@ header a span {
     list-style: none;
     width: 90%;
     text-align: center;
+    margin-bottom: 10px;
 }
 .contentProfile .listInfo li {
     padding: 20px;
@@ -92,26 +93,12 @@ header a span {
 .listInfo div {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid lightslategray;
 }
-.listInfo li, .btn-follow {
+.listInfo li {
     font-family: 'Abel', sans-serif;
 }
 .about h1 {
     font-family: 'Fondamento', cursive;
-}
-.btn-follow {
-    padding: 10px;
-    margin: 20px;
-    width: 110px;
-    background-color: rgb(55, 207, 118);
-    border: 1px solid rgb(49, 119, 66);
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.btn-follow:hover {
-    background-color: rgb(91, 236, 152);
 }
 .about {
     margin-top: 30px;
@@ -154,17 +141,50 @@ header a span {
     background-color: rgb(55, 207, 118);
     border-radius: 7px;
 }
+/*========================*/
 .pub {
     width: 100%;
     display: block;
+    margin-top: 10px;
+}
+/*===activity====*/
+#activity-users {
+    border: 1px solid rgb(207, 207, 207);
+    margin-bottom: 20px;
+    border-radius: 10px;    
+}
+.activity-pub input {
+    width: 85%;
+    padding: 10px;
+    margin: 0 10px 10px 10px;
+    outline: none;
+    border: none;
 }
 #profile-head {
     display: flex;
     align-items: center;
+    margin: 0 10px 10px 10px;
+    border-bottom: 1px solid rgb(187, 187, 187);
 }
 .img-circle {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    margin-right: 10px;
+    border: 2px solid lightslategray;
+    margin: 10px;
 }
+.activity-pub p {
+    text-align: justify;
+    margin: 15px;
+    line-height: 28px;
+}
+#icons-activity {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+#icons-activity i {
+    padding: 5;
+}
+/*===timeline====*/
+/*===settings====*/
