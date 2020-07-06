@@ -204,4 +204,27 @@ header a span {
     padding: 10px;
     border-bottom: 1px solid lightslategrey;
 }
+#btn-readMore, #btn-deleteEmail {
+    padding: 6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#btn-readMore:hover, #btn-deleteEmail:hover {
+    background-color: rgb(184, 184, 184);
+    color: rgb(37, 37, 37);
+    border: 1px solid black;
+}
+.buttons {
+    margin: 20px;
+}
+#btn-readMore {
+    background-color: rgb(56, 56, 212);
+    border: 1px solid rgb(56, 56, 212);
+}
+#btn-deleteEmail {
+    background-color: rgb(185, 25, 25);
+    border: 1px solid rgb(185, 25, 25);
+}
 /*===settings====*/
