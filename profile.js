@@ -35,18 +35,30 @@ function renderCard(character) {
 characters.forEach(character => {
     renderCard(character);
 }); 
-document.querySelector('#activity').addEventListener('click', e => {
-    document.querySelector('.activity-pub').style.display = 'block'
-    document.querySelector('.timeline-pub').style.display = 'none';
-    document.querySelector('.settings-pub').style.display = 'none';
-})
-document.querySelector('#timeline').addEventListener('click', e => {
-    document.querySelector('.activity-pub').style.display = 'none'
-    document.querySelector('.timeline-pub').style.display = 'block';
-    document.querySelector('.settings-pub').style.display = 'none';
-})
-document.querySelector('#settings').addEventListener('click', e => {
-    document.querySelector('.activity-pub').style.display = 'none'
-    document.querySelector('.timeline-pub').style.display = 'none';
-    document.querySelector('.settings-pub').style.display = 'block';
-})
+function showPanel() {
+
+    let btnActivity = document.querySelector('#activity');
+    let btnTimeline = document.querySelector('#timeline');
+    let btnSettings = document.querySelector('#settings');
+
+    let activityPanel = document.querySelector('.activity-pub');
+    let tmlPanel = document.querySelector('.timeline-pub');
+    let settingsPanel = document.querySelector('.settings-pub');
+
+    btnActivity.addEventListener('click', e => {
+        activityPanel.style.display = 'block'
+        tmlPanel.style.display = 'none';
+        settingsPanel.style.display = 'none';
+    })
+    btnTimeline.addEventListener('click', e => {
+        activityPanel.style.display = 'none'
+        tmlPanel.style.display = 'block';
+        document.querySelector('.settings-pub').style.display = 'none';
+    })
+    btnSettings.addEventListener('click', e => {
+        activityPanel.style.display = 'none'
+        tmlPanel.style.display = 'none';
+        settingsPanel.style.display = 'block';
+    })
+}
+showPanel();
