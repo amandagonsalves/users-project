@@ -197,7 +197,7 @@ header a span {
     margin-left: 5px;
     display: none;
 }
-.email, .request {
+.email, .request, .comment {
     margin: 20px;background-color: rgb(235, 235, 235);
     border: 1px solid lightsteelblue;
 }
@@ -279,4 +279,15 @@ header a span {
     border-radius: 5px;
     background-color: rgb(63, 223, 148);
     cursor: pointer;
+}
+.comment p, .comment button{
+    margin: 20px;
+}
+.comment button {
+    padding: 10px;
+    border: 1px solid rgb(209, 149, 93);
+    background-color: rgb(212, 209, 24);
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
