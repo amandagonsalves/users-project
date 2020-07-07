@@ -280,10 +280,18 @@ header a span {
     background-color: rgb(63, 223, 148);
     cursor: pointer;
 }
-.comment p, .comment button{
+#comment-content {
     margin: 20px;
 }
+#comment-head {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gray;
+}
 .comment button {
+    margin: 0 20px 20px 20px;
     padding: 10px;
     border: 1px solid rgb(209, 149, 93);
     background-color: rgb(212, 209, 24);
