@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Perfil</title>
+        <link rel="stylesheet" href="styles/home.css">
         <link rel="stylesheet" href="styles/profile.css">
         <link rel="stylesheet" href="styles/responsive-profile.css">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -110,7 +111,7 @@
                     </div>
                 </div>
                 <div class="pub settings-pub">
-                    <form action="">
+                    <form action="" id="form-user-settings">
                         <div class="formUpdateAboutMe">
                             <div class="form-group">
                                 <label for="nameAbout">Nome</label>
@@ -134,6 +135,9 @@
             </div>
         </div>
     </div>
+    <script src="models/Profile.js"></script>
+    <script src="controllers/ProfileController.js"></script>
     <script src="profile.js"></script>
+    <script src="indexProfile.js"></script>
 </body>
 </html>
