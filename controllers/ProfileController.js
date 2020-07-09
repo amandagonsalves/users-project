@@ -16,7 +16,7 @@ class ProfileController {
                 btn.disabled = true;
                 this.formSettings.reset();
                 let div = document.createElement('div');
-                div.innerHTML = 'Seu perfil foi alterado.'
+                div.innerHTML = `Seu perfil foi alterado, ${values.name}.`
                 this.formSettings.appendChild(div);
                 btn.disabled = false;
             },
@@ -32,9 +32,6 @@ class ProfileController {
             <img src="${dataUser.photo}" class="profileImg"/>
             <p>${dataUser.name}</p>
         ` 
-        console.log(JSON.stringify(li.dataset.profile));
-        li.dataset.profile = JSON.stringify(dataUser);
-        console.log(JSON.stringify(li.dataset.profile));
     }
     getPhoto() {
         return new Promise((resolve,reject) => {
