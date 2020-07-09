@@ -31,11 +31,11 @@ class ProfileController {
         li.innerHTML = `
             <img src="${dataUser.photo}" class="profileImg"/>
             <p>${dataUser.name}</p>
-        `
+        ` 
+        console.log(JSON.stringify(li.dataset.profile));
         li.dataset.profile = JSON.stringify(dataUser);
-        console.log(JSON.stringify(li.dataset.profile))
-        console.log(JSON.stringify(dataUser))
-    } 
+        console.log(JSON.stringify(li.dataset.profile));
+    }
     getPhoto() {
         return new Promise((resolve,reject) => {
             let fileReader = new FileReader();
