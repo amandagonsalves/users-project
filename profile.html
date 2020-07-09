@@ -11,14 +11,20 @@
         <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="backdrop"></div>
         <header class="header">
-            <div class="icon-menu">
-                <i class="fa fa-bars"></i>
+            <div class="menu-content">
+                <div class="icon-menu">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="menu">
+                    <div class="icon-users">
+                        <i class="fa fa-users"></i>
+                        <a href="index.html">Usuários</a>
+                    </div>
+                </div>
             </div>
-            <div class="menu">
-                <a href="index.html">Usuários</a>
-            </div>
-            
+
             <div class="home">
                 <a href="index.html">
                     <span></span>Usuários</a>
@@ -96,7 +102,7 @@
                     <div class="email">
                         <div class="email-head">
                             <p>
-                                <span style = 'color: blue; font-weight:700'>Support Team</span>
+                                <span style='color: blue; font-weight:700'>Support Team</span>
                                 enviou um email</p>
                             <p>12:15</p>
                         </div>
@@ -112,7 +118,9 @@
                     </div>
                     <div class="comment">
                         <div id="comment-head">
-                            <p><span style='color: blue; font-weight:700'>Jay White</span> comentou na sua publicação</p>
+                            <p>
+                                <span style='color: blue; font-weight:700'>Jay White</span>
+                                comentou na sua publicação</p>
                             <p>27 minutos atrás</p>
                         </div>
                         <p id="comment-content">Take me to your leader! Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood!</p>
@@ -134,9 +142,10 @@
                                 <label for="experienceAbout">Experiência</label>
                                 <input type="text" name="experienceAbout" id="experienceAbout" placeholder="Experiência">
                             </div>
-                            <input type="checkbox" name="agree" id="agree"> Eu concordo com os termos e condições
+                            <input type="checkbox" name="agree" id="agree">
+                            Eu concordo com os termos e condições
                             <div class="form-group">
-                                <button type="submit"id="btn-updateAboutMe">Enviar</button>
+                                <button type="submit" id="btn-updateAboutMe">Enviar</button>
                             </div>
                         </div>
                     </form>
