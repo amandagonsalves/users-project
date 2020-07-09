@@ -30,7 +30,7 @@ class ProfileController {
         let li = document.querySelector('#nameSettings');
         li.innerHTML = `
             <img src="${dataUser.photo}" class="profileImg"/>
-            <p>${dataUser.name}</p>
+            <p>${JSON.stringify(dataUser.nameAbout)}</p>
         ` 
     }
     getPhoto() {
@@ -66,8 +66,10 @@ class ProfileController {
                 }
             } else {
                 profile[field.name] = field.value;
+                console.log(`${profile[field.name]} = ${field.value}`)
             }
         });
+        console.log(`user = ${JSON.stringify(profile)}`)
         if(!isValid) {
             return false;
         }
