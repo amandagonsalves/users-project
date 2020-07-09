@@ -37,7 +37,7 @@ class ProfileController {
         return new Promise((resolve,reject) => {
             let fileReader = new FileReader();
             let elements = [...this.formSettings.elements].filter(item => {
-                if(item.name == 'photo') {
+                if(item.name === 'photo') {
                     return item;
                 }
             });
@@ -63,7 +63,6 @@ class ProfileController {
                 profile[field.name] = field.checked;
                 if(field.checked === false) {
                     isValid = false;
-                    return false;
                 }
             } else {
                 profile[field.name] = field.value;
@@ -76,7 +75,8 @@ class ProfileController {
             profile.name,
             profile.email,
             profile.experience,
-            profile.photo
+            profile.photo,
+            profile.agree
         );
     }
 }

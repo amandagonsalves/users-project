@@ -1,9 +1,10 @@
 class Profile {
-    constructor(name, email, experience, photo) {
+    constructor(name, email, experience, photo, agree) {
         this._name = name;
         this._email = email;
         this._experience = experience;
         this._photo = photo;
+        this._agree = agree;
     }
     get name() {
         return this._name;
@@ -28,5 +29,11 @@ class Profile {
     }
     set photo(value) {
         this._photo = value;
+    }
+    get agree() {
+        return this._agree;
+    }
+    set agree(value) {
+        this._agree = value;
     }
 }
