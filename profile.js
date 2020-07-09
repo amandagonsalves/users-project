@@ -1,3 +1,4 @@
+let profileController = new ProfileController();
 const characters = [
     {
         name: 'Jonathan',

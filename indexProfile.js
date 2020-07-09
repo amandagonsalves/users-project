@@ -1,2 +1,0 @@
-
-let profileController = new ProfileController();
