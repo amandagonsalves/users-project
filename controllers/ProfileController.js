@@ -2,15 +2,33 @@ class ProfileController {
     constructor() {
         this.onSubmitProfile();
         this.formSettings = document.querySelector('#form-user-settings');
-        
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
             e.preventDefault();
-            this.getValuesSettings();
-            this.formSettings.reset();
+            let values = this.getValuesSettings();
+            if (!values) return false;
+            let btn = this.formSettings.querySelector('[type=submit]');
+            btn.disabled = false;
+            this.getPhoto(this.formSettings).then(content => {
+                values.photo = content;
+                this.addSettings(values);
+                btn.disabled = true;
+                this.formSettings.reset();
+            },
+            e => {
+                console.log(e);
+            }
+            );
         });
     }
+    addSettings(dataUser) {
+        let li = document.querySelector('#nameSettings');
+        li.innerHTML = `
+            <p>${dataUser.name}</p>
+        `
+        console.log(JSON.stringify(li.dataset.profile))
+    } 
     getPhoto() {
         return new Promise((resolve,reject) => {
             let fileReader = new FileReader();
@@ -29,14 +47,13 @@ class ProfileController {
             if(file) {
                 fileReader.readAsDataURL(file);
             } else {
-                return false;
+                resolve('/img/boxed-bg.jpg')
             }
         })
     }
     getValuesSettings() {
         let profile = {};
         let isValid = true;
-        let btn = this.formSettings.querySelector('[type=submit]');
         [...this.formSettings.elements].forEach((field,index) => {
             if (['nameAbout', 'emailAbout', 'experienceAbout'].indexOf(field.name) > -1 && !field.value) {
                 field.parentElement.classList.add('has-error');
@@ -50,14 +67,10 @@ class ProfileController {
                 }
             } else {
                 profile[field] = field.value;
-                console.log(field.value);
             }
         });
         if(!isValid) {
-            btn.disabled = true;
             return false;
-        } else {
-            btn.disabled = false;
         }
         return new Profile(
             profile.name,
