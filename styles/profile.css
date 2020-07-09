@@ -100,7 +100,7 @@ header a span {
     align-items: center;
     list-style: none;
 }
-.contentProfile .listProfile img {
+.contentProfile .listProfile .profileImg {
     width: 80px;
     height: 80px;
     border-radius: 100%;

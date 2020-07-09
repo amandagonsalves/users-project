@@ -15,6 +15,10 @@ class ProfileController {
                 this.addSettings(values);
                 btn.disabled = true;
                 this.formSettings.reset();
+                let div = document.createElement('div');
+                div.innerHTML = 'Seu perfil foi alterado.'
+                this.formSettings.appendChild(div);
+                btn.disabled = false;
             },
             e => {
                 console.log(e);
@@ -25,9 +29,12 @@ class ProfileController {
     addSettings(dataUser) {
         let li = document.querySelector('#nameSettings');
         li.innerHTML = `
+            <img src="${dataUser.photo}" class="profileImg"/>
             <p>${dataUser.name}</p>
         `
+        li.dataset.profile = JSON.stringify(dataUser);
         console.log(JSON.stringify(li.dataset.profile))
+        console.log(JSON.stringify(dataUser))
     } 
     getPhoto() {
         return new Promise((resolve,reject) => {
@@ -75,7 +82,8 @@ class ProfileController {
         return new Profile(
             profile.name,
             profile.email,
-            profile.experience
+            profile.experience,
+            profile.photo
         );
     }
 }

@@ -1,8 +1,9 @@
 class Profile {
-    constructor(name, email, experience) {
+    constructor(name, email, experience, photo) {
         this._name = name;
         this._email = email;
         this._experience = experience;
+        this._photo = photo;
     }
     get name() {
         return this._name;
@@ -21,5 +22,11 @@ class Profile {
     }
     set experience(value) {
         this._experience = value;
+    }
+    get photo() {
+        return this._photo;
+    }
+    set photo(value) {
+        this._photo = value;
     }
 }
