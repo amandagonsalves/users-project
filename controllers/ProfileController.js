@@ -2,6 +2,7 @@ class ProfileController {
     constructor() {
         this.onSubmitProfile();
         this.formSettings = document.querySelector('#form-user-settings');
+        
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
@@ -9,6 +10,28 @@ class ProfileController {
             this.getValuesSettings();
             this.formSettings.reset();
         });
+    }
+    getPhoto() {
+        return new Promise((resolve,reject) => {
+            let fileReader = new FileReader();
+            let elements = [...this.formSettings.elements].filter(item => {
+                if(item.name == 'photo') {
+                    return item;
+                }
+            });
+            let file = elements[0].files[0];
+            fileReader.onload = () => {
+                resolve(fileReader.result);
+            };
+            fileReader.onerror = (e) => {
+                reject(e);
+            }
+            if(file) {
+                fileReader.readAsDataURL(file);
+            } else {
+                return false;
+            }
+        })
     }
     getValuesSettings() {
         let profile = {};
@@ -18,7 +41,8 @@ class ProfileController {
             if (['nameAbout', 'emailAbout', 'experienceAbout'].indexOf(field.name) > -1 && !field.value) {
                 field.parentElement.classList.add('has-error');
                 isValid = false
-            } else if(field.name === 'agree') {
+            }
+            if(field.name === 'agree') {
                 profile[field.name] = field.checked;
                 if(field.checked === false) {
                     isValid = false;
@@ -26,6 +50,7 @@ class ProfileController {
                 }
             } else {
                 profile[field] = field.value;
+                console.log(field.value);
             }
         });
         if(!isValid) {
