@@ -6,7 +6,7 @@ class ProfileController {
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
             e.preventDefault();
-            let values = this.getValuesSettings();
+            let values = this.getValuesSettings(this.formSettings);
             if (!values) return false;
             let btn = this.formSettings.querySelector('[type=submit]');
             btn.disabled = false;
@@ -70,7 +70,7 @@ class ProfileController {
                     return false;
                 }
             } else {
-                profile[field] = field.value;
+                profile[field.name] = field.value;
             }
         });
         if(!isValid) {
