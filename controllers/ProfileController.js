@@ -6,14 +6,14 @@ class ProfileController {
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
             e.preventDefault();
-            let btn = this.formSettings.querySelector('[type=submit]');
-            btn.disabled = true;
             this.getValuesSettings();
+            this.formSettings.reset();
         });
     }
     getValuesSettings() {
         let profile = {};
         let isValid = true;
+        let btn = this.formSettings.querySelector('[type=submit]');
         [...this.formSettings.elements].forEach((field,index) => {
             if (['nameAbout', 'emailAbout', 'experienceAbout'].indexOf(field.name) > -1 && !field.value) {
                 field.parentElement.classList.add('has-error');
@@ -23,17 +23,16 @@ class ProfileController {
                 if(field.checked === false) {
                     isValid = false;
                     return false;
-                } else {
-                    isValid = true;
                 }
             } else {
                 profile[field] = field.value;
-                console.log(profile[field])
             }
         });
         if(!isValid) {
             btn.disabled = true;
             return false;
+        } else {
+            btn.disabled = false;
         }
         return new Profile(
             profile.name,

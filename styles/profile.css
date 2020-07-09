@@ -78,6 +78,9 @@ header a span {
     border-radius: 100%;
     margin: 20px;
 }
+.contentProfile .listProfile p {
+    text-align: center;
+}
 .contentProfile .listProfile li a {
     padding: 10px;
 }
