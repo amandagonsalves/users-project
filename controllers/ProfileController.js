@@ -10,29 +10,31 @@ class ProfileController {
             if (!values) return false;
             let btn = this.formSettings.querySelector('[type=submit]');
             btn.disabled = false;
+            let li = document.querySelector('#nameSettings');
+            li.dataset.profile = JSON.stringify(values)
+            let userOld = JSON.parse(li.dataset.profile);
+            let result = Object.assign({}, userOld, values);
+            btn.disabled = true;
             this.getPhoto(this.formSettings).then(content => {
-                if(!values.photo) {
-                    values.photo = userOld.photo;
+                if (!values.photo) {
+                    result._photo = userOld._photo;
                 } else {
                     values.photo = content;
                 }
                 this.addSettings(values);
                 btn.disabled = true;
                 this.formSettings.reset();
-                let div = document.createElement('div');
-                div.innerHTML = `Seu perfil foi alterado, ${values.name}.`
-                this.formSettings.appendChild(div);
                 btn.disabled = false;
             },
-            e => {
-                console.log(e);
-            }
+                e => {
+                    console.log(e);
+                }
             );
         });
     }
     addSettings(dataUser) {
         let li = document.querySelector('#nameSettings');
-        li.dataset.profile = JSON.stringify(dataUser)
+        li.dataset.profile = JSON.stringify(dataUser);
         li.innerHTML = `
             <img src="${dataUser.photo}" class="profileImg"/>
             <p>${dataUser.name}</p>
@@ -44,7 +46,6 @@ class ProfileController {
                 switch (field.type) {
                     case 'file':
                         continue;
-                        break;
                     case 'checkbox':
                         field.checked = json[name];
                         break;
@@ -55,17 +56,17 @@ class ProfileController {
         }
         let userOld = JSON.parse(li.dataset.profile);
         let result = Object.assign({}, userOld, dataUser);
-        if(!dataUser.photo) {
+        if (!dataUser.photo) {
             result._photo = userOld._photo;
         }
         this.formSettings.querySelector('.photo').src = json._photo;
         console.log(li.dataset.profile)
     }
     getPhoto() {
-        return new Promise((resolve,reject) => {
+        return new Promise((resolve, reject) => {
             let fileReader = new FileReader();
             let elements = [...this.formSettings.elements].filter(item => {
-                if(item.name === 'photo') {
+                if (item.name === 'photo') {
                     return item;
                 }
             });
@@ -76,7 +77,7 @@ class ProfileController {
             fileReader.onerror = (e) => {
                 reject(e);
             }
-            if(file) {
+            if (file) {
                 fileReader.readAsDataURL(file);
             } else {
                 resolve('/img/boxed-bg.jpg')
@@ -86,10 +87,10 @@ class ProfileController {
     getValuesSettings() {
         let profile = {};
         let isValid = true;
-        [...this.formSettings.elements].forEach((field,index) => {
-            if(field.name === 'agree') {
+        [...this.formSettings.elements].forEach((field, index) => {
+            if (field.name === 'agree') {
                 profile[field.name] = field.checked;
-                if(field.checked === false) {
+                if (field.checked === false) {
                     isValid = false;
                 }
             } else {
@@ -97,7 +98,7 @@ class ProfileController {
             }
         });
         console.log(`user = ${JSON.stringify(profile)}`)
-        if(!isValid) {
+        if (!isValid) {
             return false;
         }
         return new Profile(
