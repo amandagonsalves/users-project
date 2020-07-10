@@ -30,8 +30,8 @@ class ProfileController {
         let li = document.querySelector('#nameSettings');
         li.innerHTML = `
             <img src="${dataUser.photo}" class="profileImg"/>
-            <p>${JSON.stringify(dataUser.nameAbout)}</p>
-        ` 
+            <p>${dataUser.name}</p>
+        `
     }
     getPhoto() {
         return new Promise((resolve,reject) => {
