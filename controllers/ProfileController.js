@@ -58,16 +58,13 @@ class ProfileController {
         this.formSettings.querySelector('.photo').src = json._photo;
         console.log(li.dataset.profile)
     }
-    getProfileStorage() {
-        if(localStorage.getItem('profile')) {
-            profile = JSON.parse(localStorage.getItem('profile'))
-        } else {
-            profile = [];
-        }
-    }
     insert(data) {
-        let profile = this.getProfileStorage();
-        localStorage.setItem('profile', JSON.stringify(profile))
+        let profile = Profile.getProfileStorage();
+        profile.forEach(dataUser => {
+            let profile = new Profile();
+            profile.loadFromJSON(dataUser);
+            this.addLine(profile)
+        })
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
