@@ -36,4 +36,11 @@ class Profile {
     set agree(value) {
         this._agree = value;
     }
+    static getUsersStorage() {
+        let profile = {};
+        if(localStorage.getItem('users')) {
+            profile = JSON.parse(localStorage.getItem('profile'))
+        }
+        return profile;
+    }
 }

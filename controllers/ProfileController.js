@@ -2,6 +2,7 @@ class ProfileController {
     constructor() {
         this.onSubmitProfile();
         this.formSettings = document.querySelector('#form-user-settings');
+        this.insert();
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
@@ -30,7 +31,7 @@ class ProfileController {
                     console.log(e);
                 }
             );
-        });
+        }); 
     }
     addSettings(dataUser) {
         let li = document.querySelector('#nameSettings');
@@ -54,13 +55,19 @@ class ProfileController {
                 }
             }
         }
-        let userOld = JSON.parse(li.dataset.profile);
-        let result = Object.assign({}, userOld, dataUser);
-        if (!dataUser.photo) {
-            result._photo = userOld._photo;
-        }
         this.formSettings.querySelector('.photo').src = json._photo;
         console.log(li.dataset.profile)
+    }
+    getProfileStorage() {
+        if(localStorage.getItem('profile')) {
+            profile = JSON.parse(localStorage.getItem('profile'))
+        } else {
+            profile = [];
+        }
+    }
+    insert(data) {
+        let profile = this.getProfileStorage();
+        localStorage.setItem('profile', JSON.stringify(profile))
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
