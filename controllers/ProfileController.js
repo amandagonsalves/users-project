@@ -11,7 +11,11 @@ class ProfileController {
             let btn = this.formSettings.querySelector('[type=submit]');
             btn.disabled = false;
             this.getPhoto(this.formSettings).then(content => {
-                values.photo = content;
+                if(!values.photo) {
+                    values.photo = userOld.photo;
+                } else {
+                    values.photo = content;
+                }
                 this.addSettings(values);
                 btn.disabled = true;
                 this.formSettings.reset();
@@ -28,10 +32,34 @@ class ProfileController {
     }
     addSettings(dataUser) {
         let li = document.querySelector('#nameSettings');
+        li.dataset.profile = JSON.stringify(dataUser)
         li.innerHTML = `
             <img src="${dataUser.photo}" class="profileImg"/>
             <p>${dataUser.name}</p>
         `
+        let json = JSON.parse(li.dataset.profile);
+        for (let name in json) {
+            let field = this.formSettings.querySelector('[name=' + name.replace('_', '') + ']');
+            if (field) {
+                switch (field.type) {
+                    case 'file':
+                        continue;
+                        break;
+                    case 'checkbox':
+                        field.checked = json[name];
+                        break;
+                    default:
+                        field.value = json[name];
+                }
+            }
+        }
+        let userOld = JSON.parse(li.dataset.profile);
+        let result = Object.assign({}, userOld, dataUser);
+        if(!dataUser.photo) {
+            result._photo = userOld._photo;
+        }
+        this.formSettings.querySelector('.photo').src = json._photo;
+        console.log(li.dataset.profile)
     }
     getPhoto() {
         return new Promise((resolve,reject) => {
@@ -66,7 +94,6 @@ class ProfileController {
                 }
             } else {
                 profile[field.name] = field.value;
-                console.log(`${profile[field.name]} = ${field.value}`)
             }
         });
         console.log(`user = ${JSON.stringify(profile)}`)
