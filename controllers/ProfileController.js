@@ -2,7 +2,6 @@ class ProfileController {
     constructor() {
         this.onSubmitProfile();
         this.formSettings = document.querySelector('#form-user-settings');
-       /*  this.selectProfile(); */
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
@@ -11,14 +10,14 @@ class ProfileController {
             if (!values) return false;
             let btn = this.formSettings.querySelector('[type=submit]');
             btn.disabled = false;
-            let li = document.querySelector('#nameSettings');
-            li.dataset.profile = JSON.stringify(values)
-            let userOld = JSON.parse(li.dataset.profile);
+            let div = document.querySelector('.profile');
+            div.dataset.userProfile = JSON.stringify(values)
+            let userOld = JSON.parse(div.dataset.userProfile);
             let result = Object.assign({}, userOld, values);
             btn.disabled = true;
             this.getPhoto(this.formSettings).then(content => {
                 if (!values.photo) {
-                    result._photo = userOld._photo;
+                    values._photo = userOld._photo;
                 } else {
                     values.photo = content;
                 }
@@ -33,35 +32,37 @@ class ProfileController {
             );
         }); 
     }
-    /* getProfileStorage() {
-        let userProfile;
-        if(localStorage.getItem('profile')) {
-            userProfile = JSON.parse(localStorage.getItem('profile'));
-        }
-        return userProfile;
-    }
-    selectProfile() {
-        this.getProfileStorage();
-        let profile123 = new Profile();
-        profile123.loadFromJSON(dataUser);
-        this.addSettings(profile123)
-        return profile123;
-    }  
-    insert(data) {
-        this.selectProfile();
-        let userProfile = this.getProfileStorage();
-        userProfile = data;
-        localStorage.setItem('profile', JSON.stringify(userProfile));
-    } */
     addSettings(dataUser) {
-        /* this.insert(dataUser); */
-        let li = document.querySelector('#nameSettings');
-        li.dataset.profile = JSON.stringify(dataUser);
-        li.innerHTML = `
-            <img src="${dataUser.photo}" class="profileImg"/>
-            <p>${dataUser.name}</p>
+        let div = document.querySelector('.profile');
+        div.dataset.userProfile = JSON.stringify(dataUser);
+        div.innerHTML = `
+        <div class="contentProfile">
+        <ul class="listProfile">
+            <li id="nameSettings">
+                <img src="/img/boxed-bg.jpg" alt="" class="profileImg">
+                <p>Nome</p>
+            </li>
+            <ul class="listInfo">
+                <div class="n-followers">
+                    <li>Seguidores</li>
+                    <li id="numberFollowers">180</li>
+                </div>
+                <hr>
+                <div class="n-following">
+                    <li>Seguindo</li>
+                    <li id="numberFollowing">176</li>
+                </div>
+                <hr>
+                <div class="n-friends">
+                    <li>Amigos</li>
+                    <li id="numberFriends">200</li>
+                </div>
+            </ul>
+        </ul>
+            <button type="button" class="btn-edit"><i class="fa fa-edit"></i></button>
+            <button type="button" class="btn-danger btn-delete"><i class="fa fa-times"></i></button>
         `
-        let json = JSON.parse(li.dataset.profile);
+        let json = JSON.parse(div.dataset.userProfile);
         for (let name in json) {
             let field = this.formSettings.querySelector('[name=' + name.replace('_', '') + ']');
             if (field) {
@@ -77,7 +78,7 @@ class ProfileController {
             }
         }
         this.formSettings.querySelector('.photo').src = json._photo;
-        console.log(li.dataset.profile)
+        console.log(div.dataset.userProfile)
     }
     getPhoto() {
         return new Promise((resolve, reject) => {

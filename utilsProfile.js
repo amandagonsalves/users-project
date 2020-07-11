@@ -41,6 +41,7 @@ function showPanel() {
     let btnActivity = document.querySelector('#activity');
     let btnTimeline = document.querySelector('#timeline');
     let btnSettings = document.querySelector('#settings');
+    let btnRegister = document.querySelector('#btn-register');
 
     let activityPanel = document.querySelector('.activity-pub');
     let tmlPanel = document.querySelector('.timeline-pub');
@@ -57,6 +58,11 @@ function showPanel() {
         document.querySelector('.settings-pub').style.display = 'none';
     })
     btnSettings.addEventListener('click', e => {
+        activityPanel.style.display = 'none'
+        tmlPanel.style.display = 'none';
+        settingsPanel.style.display = 'block';
+    })
+    btnRegister.addEventListener('click', e => {
         activityPanel.style.display = 'none'
         tmlPanel.style.display = 'none';
         settingsPanel.style.display = 'block';

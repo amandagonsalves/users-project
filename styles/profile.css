@@ -278,6 +278,15 @@ header a span {
     border: 2px solid gray;
 }
 /*===settings====*/
+#btn-register {
+    background-color: rgb(55, 207, 118);
+    border: 1px solid rgb(36, 121, 85);
+    font-size: 1.1rem;
+    padding: 10px;
+    margin: 10px;
+    display: block;
+    border-radius: 9px;
+}
 .settings-pub {
     display: none;
 }
