@@ -91,7 +91,6 @@ header a span {
     background-color: white;
     margin: 10px;
     border-radius: 6px;
-    box-shadow: 2px 2px rgb(221, 221, 221);
     border: 1px solid rgb(212, 212, 212);
 }
 .contentProfile .listProfile {
@@ -274,18 +273,22 @@ header a span {
     width: 60px;
     height: 60px;
     border-radius: 100%;
-    margin: 10px;
+    margin: 20px;
     border: 2px solid gray;
 }
 /*===settings====*/
 #btn-register {
-    background-color: rgb(55, 207, 118);
-    border: 1px solid rgb(36, 121, 85);
-    font-size: 1.1rem;
+    background-color: rgb(89, 182, 194);
+    border: 1px solid rgb(89, 182, 194);
+    font-size: 0.9rem;
     padding: 10px;
-    margin: 10px;
+    margin: 30px;
     display: block;
     border-radius: 9px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#btn-register:hover {
+    background-color: rgb(114, 190, 200);
 }
 .settings-pub {
     display: none;
