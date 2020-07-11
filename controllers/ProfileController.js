@@ -32,8 +32,10 @@ class ProfileController {
         })
     }
     showPanelActivity() {
+        let btnTimeline = document.querySelector('#timeline');
         let activityPanel = document.querySelector('.activity-pub');
         activityPanel.style.display = 'block';
+        btnTimeline.style.display = 'block';
         this.formSettings.style.opacity = '1';
     }
     showPanelUpdate() {
