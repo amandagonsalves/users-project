@@ -2,7 +2,7 @@ class ProfileController {
     constructor() {
         this.onSubmitProfile();
         this.formSettings = document.querySelector('#form-user-settings');
-        this.insert();
+       /*  this.selectProfile(); */
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
@@ -33,7 +33,7 @@ class ProfileController {
             );
         }); 
     }
-    getProfileStorage() {
+    /* getProfileStorage() {
         let userProfile;
         if(localStorage.getItem('profile')) {
             userProfile = JSON.parse(localStorage.getItem('profile'));
@@ -41,20 +41,20 @@ class ProfileController {
         return userProfile;
     }
     selectProfile() {
-        let userProfile = this.getProfileStorage()
+        this.getProfileStorage();
         let profile123 = new Profile();
         profile123.loadFromJSON(dataUser);
         this.addSettings(profile123)
         return profile123;
     }  
     insert(data) {
-        /* this.selectProfile(); */
+        this.selectProfile();
         let userProfile = this.getProfileStorage();
         userProfile = data;
         localStorage.setItem('profile', JSON.stringify(userProfile));
-    }
+    } */
     addSettings(dataUser) {
-        this.insert(dataUser);
+        /* this.insert(dataUser); */
         let li = document.querySelector('#nameSettings');
         li.dataset.profile = JSON.stringify(dataUser);
         li.innerHTML = `
