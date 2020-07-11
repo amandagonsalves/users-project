@@ -87,6 +87,37 @@ class ProfileController {
                     </li>
                 </ul>
             </div>
+            
+        `
+        let timeline = document.querySelector('.timeline-pub');
+        timeline.innerHTML = `
+        <div class="email">
+                        <div class="email-head">
+                            <p>
+                                <span style='color: blue; font-weight:700'>Support Team</span>
+                                enviou um email</p>
+                            <p>12:15</p>
+                        </div>
+                        <p id="email-text">Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle quora plaxo ideeli hulu weebly balihoo...</p>
+                        <div class="buttons">
+                            <button id="btn-readMore">Ler mais</button>
+                            <button id="btn-deleteEmail">Excluir</button>
+                        </div>
+                    </div>
+                    <div class="request">
+                        <img src="img/user6-128x128.jpg" alt="user image">
+                        <p>Lucas aceitou sua solicitação de amizade.</p>
+                    </div>
+                    <div class="comment">
+                        <div id="comment-head">
+                            <p>
+                                <span style='color: blue; font-weight:700'>Jay White</span>
+                                comentou na sua publicação</p>
+                            <p>27 minutos atrás</p>
+                        </div>
+                        <p id="comment-content">Take me to your leader! Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood!</p>
+                        <button id="tml-comment">Ver comentário</button>
+                    </div>
         `
         let json = JSON.parse(div.dataset.userProfile);
         for (let name in json) {
