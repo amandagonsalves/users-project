@@ -25,22 +25,17 @@ class ProfileController {
             );
         }); 
     }
-    onEditProfile() {
+   /*  onEditProfile() {
         document.querySelector('.btn-edit').addEventListener('click', e => {
             console.log('ola')
             this.showPanelUpdate();
         })
-    }
+    } */
     showPanelActivity() {
         let btnTimeline = document.querySelector('#timeline');
         let activityPanel = document.querySelector('.activity-pub');
         activityPanel.style.display = 'block';
         btnTimeline.style.display = 'block';
-        this.formSettings.style.opacity = '1';
-    }
-    showPanelUpdate() {
-        this.formUpdateSettings.style.display = 'block';
-        this.formSettings.style.display = 'none';
     }
     addSettings(dataUser) {
         let div = document.querySelector('.profile');
@@ -78,17 +73,33 @@ class ProfileController {
                 <ul class="aboutMe">
                     <li>
                         <h4>Contato</h4>
-                        <p>${dataUser.email}.</p>
+                        <p>${(dataUser.email) ? (dataUser.email) : 'Nenhum adicionado'}</p>
                     </li>
                     <hr/>
                     <li>
                         <h4>Experiência</h4>
-                        <p>${dataUser.experience}.</p>
+                        <p>${(dataUser.experience) ? (dataUser.email) : 'Nenhuma adicionada'}</p>
                     </li>
                 </ul>
             </div>
-            
         `
+        let json = JSON.parse(div.dataset.userProfile);
+        for (let name in json) {
+            let field = this.formSettings.querySelector('[name=' + name.replace('_', '') + ']');
+            if (field) {
+                switch (field.type) {
+                    case 'file':
+                        continue;
+                    case 'checkbox':
+                        field.checked = json[name];
+                        break;
+                    default:
+                        field.value = json[name];
+                }
+            }
+        }
+        this.formSettings.querySelector('.photo').src = json._photo;
+        console.log(div.dataset.userProfile)
         let timeline = document.querySelector('.timeline-pub');
         timeline.innerHTML = `
         <div class="email">
@@ -119,23 +130,6 @@ class ProfileController {
                         <button id="tml-comment">Ver comentário</button>
                     </div>
         `
-        let json = JSON.parse(div.dataset.userProfile);
-        for (let name in json) {
-            let field = this.formSettings.querySelector('[name=' + name.replace('_', '') + ']');
-            if (field) {
-                switch (field.type) {
-                    case 'file':
-                        continue;
-                    case 'checkbox':
-                        field.checked = json[name];
-                        break;
-                    default:
-                        field.value = json[name];
-                }
-            }
-        }
-        this.formSettings.querySelector('.photo').src = json._photo;
-        console.log(div.dataset.userProfile)
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
@@ -162,13 +156,14 @@ class ProfileController {
     getValuesSettings() {
         let profile = {};
         let isValid = true;
-        
+        if (!isValid) {
+            return false;
+        }
         [...this.formSettings.elements].forEach((field, index) => {
             if (['name', 'email', 'experience','password'].indexOf(field.name) > -1 && !field.value) {
                 field.parentElement.classList.add('has-error');
                 isValid = false;
-            }
-            if (field.name === 'agree') {
+            } else if (field.name === 'agree') {
                 profile[field.name] = field.checked;
                 if (field.checked === false) {
                     isValid = false;
@@ -178,9 +173,6 @@ class ProfileController {
             }
         });
         console.log(`user = ${JSON.stringify(profile)}`)
-        if (isValid = false) {
-            return false;
-        }
         return new Profile(
             profile.name,
             profile.email,

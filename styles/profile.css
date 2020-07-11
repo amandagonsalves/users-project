@@ -2,8 +2,7 @@
     margin: 0;
     padding: 0;
 }
-About
-h1, p, a {
+p, a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration: none;
     color: black;
@@ -67,9 +66,10 @@ header a span {
     display: flex;
 }
 .title {
-    margin: 20px 10px 10px 10px; 
+    margin: 10px 10px 5px 10px; 
     display: flex;
     justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #breadcrumb {
     display: flex;
