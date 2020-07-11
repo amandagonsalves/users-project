@@ -41,6 +41,7 @@ class Profile {
         if(localStorage.getItem('profile')) {
             profile = JSON.parse(localStorage.getItem('profile'))
         }
+        localStorage.setItem('profile',JSON.stringify(profile));
         return profile;
     }
     loadFromJSON(json) {
