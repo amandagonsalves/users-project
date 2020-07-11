@@ -1,7 +1,8 @@
 class ProfileController {
-    constructor() {
+    constructor(formIdCreate, formIdUpdate) {
         this.onSubmitProfile();
-        this.formSettings = document.querySelector('#form-user-settings');
+        this.formSettings = document.querySelector(formIdCreate);
+        this.formUpdateSettings = document.querySelector(formIdUpdate);
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
@@ -17,7 +18,6 @@ class ProfileController {
                 btn.disabled = true;    
                 this.formSettings.reset();
                 this.showPanelActivity();
-
             },
                 e => {
                     console.log(e);
@@ -25,10 +25,20 @@ class ProfileController {
             );
         }); 
     }
+    onEditProfile() {
+        document.querySelector('.btn-edit').addEventListener('click', e => {
+            console.log('ola')
+            this.showPanelUpdate();
+        })
+    }
     showPanelActivity() {
         let activityPanel = document.querySelector('.activity-pub');
         activityPanel.style.display = 'block';
         this.formSettings.style.opacity = '1';
+    }
+    showPanelUpdate() {
+        this.formUpdateSettings.style.display = 'block';
+        this.formSettings.style.display = 'none';
     }
     addSettings(dataUser) {
         let div = document.querySelector('.profile');

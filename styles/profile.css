@@ -185,6 +185,7 @@ header a span {
     font-size: 1.2rem;
     color: royalblue;
     font-weight: 600;
+    margin: 20px;
 }
 /*===activity====*/
 .activity-pub {
