@@ -1,9 +1,10 @@
 class Profile {
-    constructor(name, email, experience, photo, agree) {
+    constructor(name, email, experience, photo, password, agree) {
         this._name = name;
         this._email = email;
         this._experience = experience;
         this._photo = photo;
+        this._password = password;
         this._agree = agree;
     }
     get name() {
@@ -29,6 +30,12 @@ class Profile {
     }
     set photo(value) {
         this._photo = value;
+    }
+    get password() {
+        return this._password;
+    }
+    set password(value) {
+        this._password = value;
     }
     get agree() {
         return this._agree;

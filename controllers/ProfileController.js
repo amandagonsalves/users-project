@@ -162,7 +162,12 @@ class ProfileController {
     getValuesSettings() {
         let profile = {};
         let isValid = true;
+        
         [...this.formSettings.elements].forEach((field, index) => {
+            if (['name', 'email', 'experience','password'].indexOf(field.name) > -1 && !field.value) {
+                field.parentElement.classList.add('has-error');
+                isValid = false;
+            }
             if (field.name === 'agree') {
                 profile[field.name] = field.checked;
                 if (field.checked === false) {
@@ -173,7 +178,7 @@ class ProfileController {
             }
         });
         console.log(`user = ${JSON.stringify(profile)}`)
-        if (!isValid) {
+        if (isValid = false) {
             return false;
         }
         return new Profile(
@@ -181,6 +186,7 @@ class ProfileController {
             profile.email,
             profile.experience,
             profile.photo,
+            profile.password,
             profile.agree
         );
     }
