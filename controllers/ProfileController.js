@@ -9,22 +9,15 @@ class ProfileController {
             let values = this.getValuesSettings(this.formSettings);
             if (!values) return false;
             let btn = this.formSettings.querySelector('[type=submit]');
-            btn.disabled = false;
-            let div = document.querySelector('.profile');
-            div.dataset.userProfile = JSON.stringify(values)
-            let userOld = JSON.parse(div.dataset.userProfile);
-            let result = Object.assign({}, userOld, values);
             btn.disabled = true;
             this.getPhoto(this.formSettings).then(content => {
-                if (!values.photo) {
-                    values._photo = userOld._photo;
-                } else {
-                    values.photo = content;
-                }
-                this.addSettings(values);
-                btn.disabled = true;
-                this.formSettings.reset();
+                values.photo = content;
                 btn.disabled = false;
+                this.addSettings(values);
+                btn.disabled = true;    
+                this.formSettings.reset();
+                this.showPanelActivity();
+
             },
                 e => {
                     console.log(e);
@@ -32,35 +25,56 @@ class ProfileController {
             );
         }); 
     }
+    showPanelActivity() {
+        let activityPanel = document.querySelector('.activity-pub');
+        activityPanel.style.display = 'block';
+        this.formSettings.style.opacity = '1';
+    }
     addSettings(dataUser) {
         let div = document.querySelector('.profile');
         div.dataset.userProfile = JSON.stringify(dataUser);
         div.innerHTML = `
-        <div class="contentProfile">
-        <ul class="listProfile">
-            <li id="nameSettings">
-                <img src="/img/boxed-bg.jpg" alt="" class="profileImg">
-                <p>Nome</p>
-            </li>
-            <ul class="listInfo">
-                <div class="n-followers">
-                    <li>Seguidores</li>
-                    <li id="numberFollowers">180</li>
-                </div>
-                <hr>
-                <div class="n-following">
-                    <li>Seguindo</li>
-                    <li id="numberFollowing">176</li>
-                </div>
-                <hr>
-                <div class="n-friends">
-                    <li>Amigos</li>
-                    <li id="numberFriends">200</li>
+            <div class="contentProfile">
+            <ul class="listProfile">
+                <li id="nameSettings">
+                    <img src="${dataUser.photo}" alt="" class="profileImg">
+                    <p>${dataUser.name}</p>
+                </li>
+                <ul class="listInfo">
+                    <div class="n-followers">
+                        <li>Seguidores</li>
+                        <li id="numberFollowers">0</li>
+                    </div>
+                    <hr>
+                    <div class="n-following">
+                        <li>Seguindo</li>
+                        <li id="numberFollowing">0</li>
+                    </div>
+                    <hr>
+                    <div class="n-friends">
+                        <li>Amigos</li>
+                        <li id="numberFriends">0</li>
+                    </div>
+                </ul>
+                <div>
+                    <button type="button" class="btn btn-primary btn-edit"><i class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger btn-delete"><i class="fa fa-times"></i></button>
                 </div>
             </ul>
-        </ul>
-            <button type="button" class="btn-edit"><i class="fa fa-edit"></i></button>
-            <button type="button" class="btn-danger btn-delete"><i class="fa fa-times"></i></button>
+            <div class="about">
+                <h1>Sobre mim</h1>
+                <ul class="aboutMe">
+                    <li>
+                        <h4>Contato</h4>
+                        <p>${dataUser.email}.</p>
+                    </li>
+                    <hr/>
+                    <li>
+                        <h4>Experiência</h4>
+                        <p>${dataUser.experience}.</p>
+                    </li>
+                </ul>
+            </div>
         `
         let json = JSON.parse(div.dataset.userProfile);
         for (let name in json) {

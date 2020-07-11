@@ -180,6 +180,12 @@ header a span {
     display: block;
     margin-top: 10px;
 }
+.pub h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.2rem;
+    color: royalblue;
+    font-weight: 600;
+}
 /*===activity====*/
 .activity-pub {
     display: block;
