@@ -15,9 +15,8 @@ class ProfileController {
                 values.photo = content;
                 btn.disabled = false;
                 this.addSettings(values);
-                btn.disabled = true;    
                 this.formSettings.reset();
-                this.showPanelActivity();
+                this.showEditSettings();
             },
                 e => {
                     console.log(e);
@@ -25,28 +24,24 @@ class ProfileController {
             );
         }); 
     }
-   /*  onEditProfile() {
+    onEditProfile() {
         document.querySelector('.btn-edit').addEventListener('click', e => {
             console.log('ola')
             this.showPanelUpdate();
         })
-    } */
-    showPanelUpdate() {
-
-    }
-    showPanelActivity() {
-        let btnTimeline = document.querySelector('#timeline');
-        let activityPanel = document.querySelector('.activity-pub');
-        let btnSettings = document.querySelector('.success');
-        activityPanel.style.display = 'block';
-        btnTimeline.style.display = 'block';
-        btnSettings.style.display = 'none';
+    }  
+    
+    showEditSettings() {
+        let formSuccess = document.querySelector('.success');
+        let formUpdate = document.querySelector('.update');
+        formUpdate.style.display = 'none';
+        formSuccess.style.display = 'none';
     }
     addSettings(dataUser) {
         let div = document.querySelector('.profile');
         div.dataset.userProfile = JSON.stringify(dataUser);
         div.innerHTML = `
-            <div class="contentProfile">
+        <div class="contentProfile">
             <ul class="listProfile">
                 <li id="nameSettings">
                     <img src="${dataUser.photo}" alt="" class="profileImg">
@@ -87,27 +82,11 @@ class ProfileController {
                     </li>
                 </ul>
             </div>
+        </div>
         `
-        let json = JSON.parse(div.dataset.userProfile);
-        for (let name in json) {
-            let field = this.formSettings.querySelector('[name=' + name.replace('_', '') + ']');
-            if (field) {
-                switch (field.type) {
-                    case 'file':
-                        continue;
-                    case 'checkbox':
-                        field.checked = json[name];
-                        break;
-                    default:
-                        field.value = json[name];
-                }
-            }
-        }
-        this.formSettings.querySelector('.photo').src = json._photo;
-        console.log(div.dataset.userProfile)
         let timeline = document.querySelector('.timeline-pub');
         timeline.innerHTML = `
-        <div class="email">
+                    <div class="email">
                         <div class="email-head">
                             <p>
                                 <span style='color: blue; font-weight:700'>Support Team</span>
@@ -135,6 +114,23 @@ class ProfileController {
                         <button id="tml-comment">Ver comentário</button>
                     </div>
         `
+        let json = JSON.parse(div.dataset.userProfile);
+        for (let name in json) {
+            let field = this.formSettings.querySelector('[name=' + name.replace('_', '') + ']');
+            if (field) {
+                switch (field.type) {
+                    case 'file':
+                        continue;
+                    case 'checkbox':
+                        field.checked = json[name];
+                        break;
+                    default:
+                        field.value = json[name];
+                }
+            }
+        }
+        this.formSettings.querySelector('.photo').src = json._photo;
+        console.log(div.dataset.userProfile)
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
@@ -161,14 +157,12 @@ class ProfileController {
     getValuesSettings() {
         let profile = {};
         let isValid = true;
-        if (!isValid) {
-            return false;
-        }
         [...this.formSettings.elements].forEach((field, index) => {
             if (['name', 'email', 'experience','password'].indexOf(field.name) > -1 && !field.value) {
                 field.parentElement.classList.add('has-error');
                 isValid = false;
-            } else if (field.name === 'agree') {
+            }
+            if (field.name === 'agree') {
                 profile[field.name] = field.checked;
                 if (field.checked === false) {
                     isValid = false;
@@ -177,7 +171,9 @@ class ProfileController {
                 profile[field.name] = field.value;
             }
         });
-        console.log(`user = ${JSON.stringify(profile)}`)
+        if (!isValid) {
+            return false;
+        }
         return new Profile(
             profile.name,
             profile.email,

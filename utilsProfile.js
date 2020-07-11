@@ -60,7 +60,7 @@ function showPanel() {
     btnSettings.addEventListener('click', e => {
         activityPanel.style.display = 'none'
         tmlPanel.style.display = 'none';
-        settingsPanel.style.display = 'block';
+        settingsPanel.style.display = 'none';
     })
     btnRegister.addEventListener('click', e => {
         activityPanel.style.display = 'none'

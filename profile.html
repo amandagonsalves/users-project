@@ -60,7 +60,7 @@
                 <div class="pub-timeline">
                     <div class="pub activity-pub"></div>
                     <div class="pub timeline-pub">
-                        <p id="registerNews">Cadastre-se para ver novas notificações</p>
+                        <p class="registerNews">Cadastre-se para ver novas notificações</p>
                     </div>
                     <div class="pub settings-pub success">
                         <form action="" id="form-user-settings">
@@ -68,15 +68,15 @@
                                 <h1>Novo perfil</h1>
                                 <div class="form-group">
                                     <label for="name">Nome</label>
-                                    <input type="text" name="name" id="name" placeholder="Nome">
+                                    <input type="text" name="name" id="name" placeholder="Nome" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" placeholder="Email">
+                                    <input type="email" name="email" id="email" placeholder="Email" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="experience">Experiência</label>
-                                    <input type="text" name="experience" id="experience" placeholder="Experiência">
+                                    <input type="text" name="experience" id="experience" placeholder="Experiência" required="required">
                                 </div>
                                 <div class="form-group">
                                     <img src="/img/boxed-bg.jpg" alt="" class="photo" style="width:200px; height: 200px; margin-bottom:10px;">
@@ -84,9 +84,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Crie uma senha</label>
-                                    <input type="password" name="password" id="password">
+                                    <input type="password" name="password" id="password" required="required">
                                 </div>
-                                <input type="checkbox" name="agree" id="agree">
+                                <input type="checkbox" name="agree" id="agree" required="required">
                                 Eu concordo com os termos e condições
                                 <div class="form-group">
                                     <button type="submit" id="btn-updateAboutMe">Enviar</button>
