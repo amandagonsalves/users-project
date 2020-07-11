@@ -31,11 +31,16 @@ class ProfileController {
             this.showPanelUpdate();
         })
     } */
+    showPanelUpdate() {
+
+    }
     showPanelActivity() {
         let btnTimeline = document.querySelector('#timeline');
         let activityPanel = document.querySelector('.activity-pub');
+        let btnSettings = document.querySelector('.success');
         activityPanel.style.display = 'block';
         btnTimeline.style.display = 'block';
+        btnSettings.style.display = 'none';
     }
     addSettings(dataUser) {
         let div = document.querySelector('.profile');
@@ -78,7 +83,7 @@ class ProfileController {
                     <hr/>
                     <li>
                         <h4>Experiência</h4>
-                        <p>${(dataUser.experience) ? (dataUser.email) : 'Nenhuma adicionada'}</p>
+                        <p>${(dataUser.experience) ? (dataUser.experience) : 'Nenhuma adicionada'}</p>
                     </li>
                 </ul>
             </div>
