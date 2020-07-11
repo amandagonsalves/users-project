@@ -2,6 +2,7 @@ class ProfileController {
     constructor() {
         this.onSubmitProfile();
         this.formSettings = document.querySelector('#form-user-settings');
+        this.insert();
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
@@ -32,7 +33,22 @@ class ProfileController {
             );
         }); 
     }
+    getProfileStorage() {
+        let userProfile = [];
+        if(localStorage.getItem('profile')) {
+            userProfile = JSON.parse(localStorage.getItem('profile'));
+        }
+    }
+    selectProfile() {
+        let userProfile;
+        
+        let profile = new Profile();
+        profile.loadFromJSON();
+        this.addSettings(profile)
+        return profile;
+    }  
     insert(data) {
+        this.selectProfile();
         localStorage.setItem('profile', JSON.stringify(data));
     }
     addSettings(dataUser) {

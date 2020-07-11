@@ -43,10 +43,10 @@ class Profile {
         }
         localStorage.setItem('profile',JSON.stringify(profile));
         return profile;
-    }
+    }*/
     loadFromJSON(json) {
         for(let name in json) {
             this[name] = json[name];
         }
-    } */
+    } 
 }
