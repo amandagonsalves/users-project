@@ -34,22 +34,24 @@ class ProfileController {
         }); 
     }
     getProfileStorage() {
-        let userProfile = [];
+        let userProfile;
         if(localStorage.getItem('profile')) {
             userProfile = JSON.parse(localStorage.getItem('profile'));
         }
+        return userProfile;
     }
     selectProfile() {
-        let userProfile;
-        
-        let profile = new Profile();
-        profile.loadFromJSON();
-        this.addSettings(profile)
-        return profile;
+        let userProfile = this.getProfileStorage()
+        let profile123 = new Profile();
+        profile123.loadFromJSON(dataUser);
+        this.addSettings(profile123)
+        return profile123;
     }  
     insert(data) {
-        this.selectProfile();
-        localStorage.setItem('profile', JSON.stringify(data));
+        /* this.selectProfile(); */
+        let userProfile = this.getProfileStorage();
+        userProfile = data;
+        localStorage.setItem('profile', JSON.stringify(userProfile));
     }
     addSettings(dataUser) {
         this.insert(dataUser);
