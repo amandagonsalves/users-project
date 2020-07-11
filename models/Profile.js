@@ -36,7 +36,7 @@ class Profile {
     set agree(value) {
         this._agree = value;
     }
-    static getProfileStorage() {
+    /* static getProfileStorage() {
         let profile = [];
         if(localStorage.getItem('profile')) {
             profile = JSON.parse(localStorage.getItem('profile'))
@@ -48,5 +48,5 @@ class Profile {
         for(let name in json) {
             this[name] = json[name];
         }
-    }
+    } */
 }

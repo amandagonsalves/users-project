@@ -2,7 +2,6 @@ class ProfileController {
     constructor() {
         this.onSubmitProfile();
         this.formSettings = document.querySelector('#form-user-settings');
-        this.insert();
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
@@ -33,7 +32,11 @@ class ProfileController {
             );
         }); 
     }
+    insert(data) {
+        localStorage.setItem('profile', JSON.stringify(data));
+    }
     addSettings(dataUser) {
+        this.insert(dataUser);
         let li = document.querySelector('#nameSettings');
         li.dataset.profile = JSON.stringify(dataUser);
         li.innerHTML = `
@@ -57,14 +60,6 @@ class ProfileController {
         }
         this.formSettings.querySelector('.photo').src = json._photo;
         console.log(li.dataset.profile)
-    }
-    insert() {
-        let profiles = Profile.getProfileStorage();
-        profiles.forEach(dataUser => {
-            let profile = new Profile();
-            profile.loadFromJSON(dataUser);
-            this.addSettings(profile)
-        })
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
