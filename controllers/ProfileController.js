@@ -16,7 +16,7 @@ class ProfileController {
                 btn.disabled = false;
                 this.addSettings(values);
                 this.formSettings.reset();
-                this.showEditSettings();
+                /* this.showEditSettings(); */
             },
                 e => {
                     console.log(e);
@@ -24,19 +24,22 @@ class ProfileController {
             );
         }); 
     }
-    onEditProfile() {
+    /* onEditProfile() {
         document.querySelector('.btn-edit').addEventListener('click', e => {
             console.log('ola')
             this.showPanelUpdate();
         })
     }  
-    
-    showEditSettings() {
-        let formSuccess = document.querySelector('.success');
-        let formUpdate = document.querySelector('.update');
-        formUpdate.style.display = 'none';
-        formSuccess.style.display = 'none';
+    showEditPanel() {
+       
     }
+    showEditSettings() {
+        let btnSettings = document.querySelector('#settings');
+        btnSettings.addEventListener('click', e => {
+            this.showEditPanel();
+            console.log('ola')
+        })
+    }*/
     addSettings(dataUser) {
         let div = document.querySelector('.profile');
         div.dataset.userProfile = JSON.stringify(dataUser);
@@ -113,6 +116,35 @@ class ProfileController {
                         <p id="comment-content">Take me to your leader! Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood!</p>
                         <button id="tml-comment">Ver comentário</button>
                     </div>
+        `
+        let formUpdate = document.querySelector('.settings-pub.update');
+        formUpdate.innerHTML = `
+        <form action="" id="form-user-settings-update">
+            <div class="formUpdateAboutMe">
+                <h1>Editar perfil</h1>
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" placeholder="Nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="experience">Experiência</label>
+                    <input type="text" name="experience" id="experience" placeholder="Experiência">
+                </div>
+                <div class="form-group">
+                    <img src="/img/boxed-bg.jpg" alt="" class="photo" style="width:200px; height: 200px; margin-bottom:10px;">
+                    <input type="file" name="photo" id="photo">
+                </div>
+                <input type="checkbox" name="agree" id="agree">
+                Eu concordo com os termos e condições
+                <div class="form-group">
+                    <button type="submit" id="btn-updateAboutMe">Enviar</button>
+                </div>
+            </div>
+        </form>
         `
         let json = JSON.parse(div.dataset.userProfile);
         for (let name in json) {
