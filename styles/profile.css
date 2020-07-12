@@ -337,13 +337,20 @@ header a span {
 .settings-pub .form-group input:hover, .settings-pub .form-group input:focus {
     border: 1px solid rgb(44, 170, 97);
 }
-#btn-updateAboutMe {
+#btn-updateAboutMe, .btn-cancel {
     padding: 10px;
-    border: 1px solid rgb(36, 121, 85);
     outline: none;
     border-radius: 5px;
-    background-color: rgb(63, 223, 148);
     cursor: pointer;
+}
+.btn-cancel {
+    border: 1px solid rgb(144, 144, 144);
+    background-color: rgb(195, 195, 195);
+    margin-top: 20px;
+}
+#btn-updateAboutMe {
+    border: 1px solid rgb(36, 121, 85);
+    background-color: rgb(63, 223, 148);
 }
 #comment-content {
     margin: 20px;

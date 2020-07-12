@@ -13,10 +13,13 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
-     onEditProfile() {
+    onEditProfile() {
          document.querySelector('.btn-edit').addEventListener('click', e => {
              console.log('ols')
          })
+         document.querySelector('.btn-cancel').addEventListener('click', e => {
+            this.activity();
+        });
     } 
     showCardsActivity() {
         let characters = [
@@ -237,6 +240,7 @@ class ProfileController {
                 Eu concordo com os termos e condições
                 <div class="form-group">
                     <button type="submit" id="btn-updateAboutMe">Enviar</button>
+                    <button type="button" class="btn-cancel">Cancelar</button>
                 </div>
             </div>
         </form>
