@@ -1,10 +1,13 @@
 class ProfileController {
     constructor(formIdCreate, formIdUpdate) {
+        this.showMenu();
         this.showPanel();
         this.showCardsActivity();
         this.onSubmitProfile();
+
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
+
         this.activityPanel = document.querySelector('.activity-pub');
         this.tmlPanel = document.querySelector('.timeline-pub');
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
@@ -49,8 +52,14 @@ class ProfileController {
     `
     pub.appendChild(div);
     }
+    activity() {
+        this.activityPanel.style.display = 'block'
+        this.tmlPanel.style.display = 'none';
+        this.settingsPanelSuccess.style.display = 'none';
+        this.settingsPanelUpdate.style.display = 'none';
+    }
     button(idButton) {
-        return document.getElementById(idButton)
+        return document.getElementById(idButton);
     }
     showPanel() {
         this.showPanelActivity();
@@ -60,10 +69,7 @@ class ProfileController {
     }
     showPanelActivity() {
         this.button('activity').addEventListener('click', e => {
-            this.activityPanel.style.display = 'block'
-            this.tmlPanel.style.display = 'none';
-            this.settingsPanelSuccess.style.display = 'none';
-            this.settingsPanelUpdate.style.display = 'none';
+           this.activity();
         });
     }
     showPanelTimeline() {
@@ -90,6 +96,19 @@ class ProfileController {
             this.settingsPanelUpdate.style.display = 'none';
         });
     }
+    showMenu() {
+        let backdrop = document.querySelector('.backdrop');
+        let menu = document.querySelector('.menu');
+        let icon = document.querySelector('.icon-menu');
+        icon.addEventListener('click', e => {
+            menu.classList.add('open');
+            backdrop.classList.add('open');
+        })
+        backdrop.addEventListener('click', e => {
+            menu.classList.remove('open');
+            backdrop.classList.remove('open');
+        })
+    }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
             e.preventDefault();
@@ -102,6 +121,7 @@ class ProfileController {
                 btn.disabled = false;
                 this.addSettings(values);
                 this.formSettings.reset();
+                this.activity();
             },
                 e => {
                     console.log(e);
@@ -111,7 +131,6 @@ class ProfileController {
     }
     addSettings(dataUser) {
         let div = document.querySelector('.profile');
-        div.dataset.userProfile = JSON.stringify(dataUser);
         div.innerHTML = `
         <div class="contentProfile">
             <ul class="listProfile">
@@ -156,6 +175,7 @@ class ProfileController {
             </div>
         </div>
         `
+        
         let timeline = document.querySelector('.timeline-pub');
         timeline.innerHTML = `
                     <div class="email">
@@ -186,6 +206,7 @@ class ProfileController {
                         <button id="tml-comment">Ver comentário</button>
                     </div>
         `
+        
         let formUpdate = document.querySelector('.settings-pub.update');
         formUpdate.innerHTML = `
         <form action="" id="form-user-settings-update">
@@ -215,6 +236,8 @@ class ProfileController {
             </div>
         </form>
         `
+        
+        div.dataset.userProfile = JSON.stringify(dataUser);
         let json = JSON.parse(div.dataset.userProfile);
         for (let name in json) {
             let field = this.formSettings.querySelector('[name=' + name.replace('_', '') + ']');
@@ -231,7 +254,6 @@ class ProfileController {
             }
         }
         this.formSettings.querySelector('.photo').src = json._photo;
-        console.log(div.dataset.userProfile)
     }
     getPhoto() {
         return new Promise((resolve, reject) => {

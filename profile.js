@@ -1,0 +1,1 @@
+let profileController = new ProfileController('#form-user-settings', '#form-user-settings-update');
