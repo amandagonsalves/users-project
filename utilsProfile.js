@@ -1,41 +1,4 @@
 let profileController = new ProfileController('#form-user-settings', '#form-user-settings-update');
-const characters = [
-    {
-        name: 'Jonathan',
-        imgProfile: '/img/user1-128x128.jpg'
-    },
-    {
-        name: 'Maria',
-        imgProfile: '/img/user4-128x128.jpg'
-    },
-    {
-        name: 'Lucas',
-        imgProfile: '/img/user6-128x128.jpg'
-    }
-]
-function renderCard(character) {
-    let pub = document.querySelector('.activity-pub');
-    let div = document.createElement('div');
-    div.innerHTML = `
-        <div id="activity-users">
-            <div id="profile-head">
-                <img src="${character.imgProfile}" class="img-circle"/>
-                <p>${character.name}</p>
-            </div>
-            <p>Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.</p>
-            <div id="icons-activity">
-                <i class="fa fa-share"></i>
-                <i class="fa fa-like"></i>
-                <i class="fa fa-comment"></i>
-            </div>
-            <input type="text" placeholder="Adicione um comentário"/>
-        </div>
-    `
-    pub.appendChild(div);
-}
-characters.forEach(character => {
-    renderCard(character);
-}); 
 function showPanel() {
 
     let btnActivity = document.querySelector('#activity');
@@ -45,35 +8,30 @@ function showPanel() {
 
     let activityPanel = document.querySelector('.activity-pub');
     let tmlPanel = document.querySelector('.timeline-pub');
-    /* let settingsPanel = document.querySelector('.settings-pub'); */
     let settingsPanelSuccess = document.querySelector('.settings-pub.success');
     let settingsPanelUpdate = document.querySelector('.settings-pub.update');
 
     btnActivity.addEventListener('click', e => {
         activityPanel.style.display = 'block'
         tmlPanel.style.display = 'none';
-       /*  settingsPanel.style.display = 'none'; */
         settingsPanelSuccess.style.display = 'none';
         settingsPanelUpdate.style.display = 'none';
     });
     btnTimeline.addEventListener('click', e => {
         activityPanel.style.display = 'none'
         tmlPanel.style.display = 'block';
-      /*   settingsPanel.style.display = 'none'; */
         settingsPanelSuccess.style.display = 'none';
         settingsPanelUpdate.style.display = 'none';
     });
     btnSettings.addEventListener('click', e => {
         activityPanel.style.display = 'none'
         tmlPanel.style.display = 'none';
-    /*     settingsPanel.style.display = 'block'; */
         settingsPanelSuccess.style.display = 'none';
         settingsPanelUpdate.style.display = 'block';
     });
     btnRegister.addEventListener('click', e => {
         activityPanel.style.display = 'none'
         tmlPanel.style.display = 'none';
-      /*   settingsPanel.style.display = 'block'; */
         settingsPanelSuccess.style.display = 'block';
         settingsPanelUpdate.style.display = 'none';
     });

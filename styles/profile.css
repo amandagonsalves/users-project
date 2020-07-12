@@ -231,11 +231,10 @@ header a span {
 }
 /*===timeline====*/
 .timeline-pub {
-    border-left: 3px solid rgb(163, 163, 163);
     margin-left: 5px;
     display: none;
 }
-.timeline-pub .registerNews {
+.registerNews {
     text-align: center;
     color: rgb(56, 56, 212);
     font-weight: 600;

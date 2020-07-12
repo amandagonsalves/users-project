@@ -1,8 +1,57 @@
 class ProfileController {
     constructor(formIdCreate, formIdUpdate) {
+        this.showCardsActivity();
         this.onSubmitProfile();
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
+    }
+    showCardsActivity() {
+        let characters = [
+            {
+                name: 'Jonathan',
+                imgProfile: '/img/user1-128x128.jpg'
+            },
+            {
+                name: 'Maria',
+                imgProfile: '/img/user4-128x128.jpg'
+            },
+            {
+                name: 'Lucas',
+                imgProfile: '/img/user6-128x128.jpg'
+            }
+        ];
+        characters.forEach(character => {
+            this.renderCardActivity(character);
+        });
+    }
+    renderCardActivity(character) {
+        let pub = document.querySelector('.activity-pub');
+        let div = document.createElement('div');
+        div.innerHTML = `
+        <div id="activity-users">
+            <div id="profile-head">
+                <img src="${character.imgProfile}" class="img-circle"/>
+                <p>${character.name}</p>
+            </div>
+            <p>Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.</p>
+            <div id="icons-activity">
+                <i class="fa fa-share"></i>
+                <i class="fa fa-like"></i>
+                <i class="fa fa-comment"></i>
+            </div>
+            <input type="text" placeholder="Adicione um comentário"/>
+        </div>
+    `
+    pub.appendChild(div);
+    }
+    showPanelActivity() {
+
+    }
+    showPanelActivity() {
+
+    }
+    showPanelActivity() {
+
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
@@ -16,7 +65,6 @@ class ProfileController {
                 btn.disabled = false;
                 this.addSettings(values);
                 this.formSettings.reset();
-                /* this.showEditSettings(); */
             },
                 e => {
                     console.log(e);
@@ -24,22 +72,6 @@ class ProfileController {
             );
         }); 
     }
-    /* onEditProfile() {
-        document.querySelector('.btn-edit').addEventListener('click', e => {
-            console.log('ola')
-            this.showPanelUpdate();
-        })
-    }  
-    showEditPanel() {
-       
-    }
-    showEditSettings() {
-        let btnSettings = document.querySelector('#settings');
-        btnSettings.addEventListener('click', e => {
-            this.showEditPanel();
-            console.log('ola')
-        })
-    }*/
     addSettings(dataUser) {
         let div = document.querySelector('.profile');
         div.dataset.userProfile = JSON.stringify(dataUser);
