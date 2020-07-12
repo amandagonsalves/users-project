@@ -1,5 +1,5 @@
 let profileController = new ProfileController('#form-user-settings', '#form-user-settings-update');
-function showPanel() {
+/* function showPanel() {
 
     let btnActivity = document.querySelector('#activity');
     let btnTimeline = document.querySelector('#timeline');
@@ -36,7 +36,7 @@ function showPanel() {
         settingsPanelUpdate.style.display = 'none';
     });
 }
-showPanel();
+showPanel(); */
 document.querySelector('.icon-menu').addEventListener('click', e => {
     document.querySelector('.menu').classList.add('open');
     document.querySelector('.backdrop').classList.add('open');

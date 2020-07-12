@@ -1,9 +1,14 @@
 class ProfileController {
     constructor(formIdCreate, formIdUpdate) {
+        this.showPanel();
         this.showCardsActivity();
         this.onSubmitProfile();
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
+        this.activityPanel = document.querySelector('.activity-pub');
+        this.tmlPanel = document.querySelector('.timeline-pub');
+        this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
+        this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
     showCardsActivity() {
         let characters = [
@@ -44,14 +49,46 @@ class ProfileController {
     `
     pub.appendChild(div);
     }
-    showPanelActivity() {
-
+    button(idButton) {
+        return document.getElementById(idButton)
+    }
+    showPanel() {
+        this.showPanelActivity();
+        this.showPanelSettingsCreate();
+        this.showPanelSettingsUpdate();
+        this.showPanelTimeline()
     }
     showPanelActivity() {
-
+        this.button('activity').addEventListener('click', e => {
+            this.activityPanel.style.display = 'block'
+            this.tmlPanel.style.display = 'none';
+            this.settingsPanelSuccess.style.display = 'none';
+            this.settingsPanelUpdate.style.display = 'none';
+        });
     }
-    showPanelActivity() {
-
+    showPanelTimeline() {
+        this.button('timeline').addEventListener('click', e => {
+            this.activityPanel.style.display = 'none'
+            this.tmlPanel.style.display = 'block';
+            this.settingsPanelSuccess.style.display = 'none';
+            this.settingsPanelUpdate.style.display = 'none';
+        });
+    }
+    showPanelSettingsUpdate() {
+        this.button('settings').addEventListener('click', e => {
+            this.activityPanel.style.display = 'none'
+            this.tmlPanel.style.display = 'none';
+            this.settingsPanelSuccess.style.display = 'none';
+            this.settingsPanelUpdate.style.display = 'block';
+        });
+    }
+    showPanelSettingsCreate() {
+        this.button('btn-register').addEventListener('click', e => {
+            this.activityPanel.style.display = 'none'
+            this.tmlPanel.style.display = 'none';
+            this.settingsPanelSuccess.style.display = 'block';
+            this.settingsPanelUpdate.style.display = 'none';
+        });
     }
     onSubmitProfile() {
         document.querySelector('#form-user-settings').addEventListener('submit', e => {
