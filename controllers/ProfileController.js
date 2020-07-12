@@ -4,6 +4,7 @@ class ProfileController {
         this.showPanel();
         this.showCardsActivity();
         this.onSubmitProfile();
+       /*  this.onEditProfile(); */
 
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
@@ -13,6 +14,8 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
+    /* onEditProfile() {
+    } */
     showCardsActivity() {
         let characters = [
             {
