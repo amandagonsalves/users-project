@@ -4,7 +4,6 @@ class ProfileController {
         this.showPanel();
         this.showCardsActivity();
         this.onSubmitProfile();
-       /*  this.onEditProfile(); */
 
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
@@ -14,8 +13,11 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
-    /* onEditProfile() {
-    } */
+     onEditProfile() {
+         document.querySelector('.btn-edit').addEventListener('click', e => {
+             console.log('ols')
+         })
+    } 
     showCardsActivity() {
         let characters = [
             {
@@ -239,7 +241,7 @@ class ProfileController {
             </div>
         </form>
         `
-        
+        this.onEditProfile();
         div.dataset.userProfile = JSON.stringify(dataUser);
         let json = JSON.parse(div.dataset.userProfile);
         for (let name in json) {

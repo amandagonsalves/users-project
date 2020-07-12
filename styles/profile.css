@@ -84,6 +84,12 @@ header a span {
 .content-timeline {
     flex: 2;
 }
+#description, #description p {
+    margin: 20px;
+}
+#description p {
+    text-align: justify;
+}
 .about, .content-timeline {
     border-top: 5px solid rgb(128, 180, 240);
 }
