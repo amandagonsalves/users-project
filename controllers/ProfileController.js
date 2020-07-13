@@ -190,10 +190,6 @@ class ProfileController {
                         <li id="numberFriends">0</li>
                     </div>
                 </ul>
-                <div>
-                    <button type="button" class="btn btn-primary btn-edit"><i class="fa fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger btn-delete"><i class="fa fa-times"></i></button>
-                </div>
             </ul>
             <div class="about">
                 <h1>Sobre mim</h1>
@@ -211,27 +207,6 @@ class ProfileController {
             </div>
         </div>
         `;
-        div.querySelector('.btn-edit').addEventListener('click', e => {
-            div.dataset.userProfile = JSON.stringify(dataUser);
-            let json = JSON.parse(div.dataset.userProfile);
-            console.log(json)
-            for (let name in json) {
-                let field = this.formUpdateSettings.querySelector('[name=' + name.replace('_', '') + ']');
-                if (field) {
-                    switch (field.type) {
-                        case 'file':
-                            continue;
-                        case 'checkbox':
-                            field.checked = json[name];
-                            break;
-                        default:
-                            field.value = json[name];
-                    }
-                }
-            }
-            this.formUpdateSettings.querySelector('.photo').src = json._photo;
-            this.showPanelUpdate();
-        })
         
         let timeline = document.querySelector('.timeline-pub');
         timeline.innerHTML = `
@@ -289,7 +264,12 @@ class ProfileController {
                 <label for="agree">Eu concordo com os <b>termos e condições</b></label>
                 <div class="form-group">
                     <button type="submit" id="btn-updateAboutMe">Enviar</button>
-                    <button type="button" class="btn-cancel">Cancelar</button>
+                </div>
+                <div class="form-group">
+                    <div id="buttonsUpdate">
+                        <button type="button" class="btn-cancel">Cancelar</button>
+                        <button type="button" class="btn-delete">Excluir conta</button>
+                    </div>
                 </div>
             </div>
         </form>
