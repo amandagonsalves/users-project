@@ -35,6 +35,9 @@ class ProfileController {
             }
             form.querySelector('.photo').src = json._photo;
             this.showPanelUpdate();
+        });
+        document.querySelector('.btn-cancel').addEventListener('click', e => {
+            this.activity();
         })
     }
     showCardsActivity() {
