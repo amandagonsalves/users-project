@@ -224,6 +224,9 @@ header a span {
     border: 2px solid lightslategray;
     margin: 10px;
 }
+#profile-head img, #profile-head p, #icons-activity i {
+    cursor: pointer;
+}
 .activity-pub p {
     text-align: justify;
     margin: 15px;
