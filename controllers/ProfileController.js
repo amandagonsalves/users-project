@@ -13,10 +13,10 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
-    /*addEvents(div) {
-        div.querySelector('.btn-edit').addEventListener('click', e => {
-            div.dataset.userProfile = JSON.stringify(dataUser);
-            let json = JSON.parse(div.dataset.userProfile);
+    /* addEvents(formUpdateSettings) {
+        formUpdateSettings.querySelector('.btn-edit').addEventListener('click', e => {
+            formUpdateSettings.dataset.userProfile = JSON.stringify(dataUser);
+            let json = JSON.parse(formUpdateSettings.dataset.userProfile);
             console.log(json)
             for (let name in json) {
                 let field = this.formUpdateSettings.querySelector('[name=' + name.replace('_', '') + ']');
@@ -30,17 +30,19 @@ class ProfileController {
                         default:
                             field.value = json[name];
                     }
+        div.querySelector('.btn-cancel').addEventListener('click', e => {
+            this.activity();
+        });
                 }
             }
             this.formUpdateSettings.querySelector('.photo').src = json._photo;
+            this.showPanelUpdate();
         })
-        document.querySelector('.btn-cancel').addEventListener('click', e => {
-            this.activity();
-        });
-    } */
-    onEditProfile() {
+        
+    } */ 
+    /* onEditProfile() {
        
-    } 
+    }  */
     showCardsActivity() {
         let characters = [
             {
@@ -85,6 +87,12 @@ class ProfileController {
         this.tmlPanel.style.display = 'none';
         this.settingsPanelSuccess.style.display = 'none';
         this.settingsPanelUpdate.style.display = 'none';
+    }
+    showPanelUpdate() {
+        this.activityPanel.style.display = 'none'
+        this.tmlPanel.style.display = 'none';
+        this.settingsPanelSuccess.style.display = 'none';
+        this.settingsPanelUpdate.style.display = 'block';
     }
     button(idButton) {
         return document.getElementById(idButton);
@@ -202,7 +210,28 @@ class ProfileController {
                 </ul>
             </div>
         </div>
-        `
+        `;
+        div.querySelector('.btn-edit').addEventListener('click', e => {
+            div.dataset.userProfile = JSON.stringify(dataUser);
+            let json = JSON.parse(div.dataset.userProfile);
+            console.log(json)
+            for (let name in json) {
+                let field = this.formUpdateSettings.querySelector('[name=' + name.replace('_', '') + ']');
+                if (field) {
+                    switch (field.type) {
+                        case 'file':
+                            continue;
+                        case 'checkbox':
+                            field.checked = json[name];
+                            break;
+                        default:
+                            field.value = json[name];
+                    }
+                }
+            }
+            this.formUpdateSettings.querySelector('.photo').src = json._photo;
+            this.showPanelUpdate();
+        })
         
         let timeline = document.querySelector('.timeline-pub');
         timeline.innerHTML = `
@@ -233,7 +262,7 @@ class ProfileController {
                         <p id="comment-content">Take me to your leader! Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood!</p>
                         <button id="tml-comment">Ver comentário</button>
                     </div>
-        `
+        `;
         
         let formUpdate = document.querySelector('.settings-pub.update');
         formUpdate.innerHTML = `
@@ -264,8 +293,7 @@ class ProfileController {
                 </div>
             </div>
         </form>
-        `
-        /* this.addEvents(this.formUpdateSettings); */
+        `;
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
