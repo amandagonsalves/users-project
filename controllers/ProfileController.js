@@ -13,6 +13,12 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
+    /* onEditProfile() {
+        let btn = this.formUpdateSettings.querySelector('[type=submit]');
+        btn.disabled = true;
+        let values = this.getValuesSettings(this.formUpdateSettings);
+
+    } */
     addEvents(dataUser) {
         document.querySelector('#settings').addEventListener('click', e => {
             let form = document.querySelector('#form-user-settings-update')
@@ -35,10 +41,17 @@ class ProfileController {
             }
             form.querySelector('.photo').src = json._photo;
             this.showPanelUpdate();
+            /* form.addEventListener('submit', e => {
+                e.preventDefault();
+                this.onEditProfile();
+            }) */
         });
         document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
-        })
+        });
+        document.querySelector('.btn-delete').addEventListener('click', e => {
+            alert('deletar')
+        });
     }
     showCardsActivity() {
         let characters = [
@@ -259,10 +272,8 @@ class ProfileController {
                 </div>
                 <input type="checkbox" name="agree" id="agree">
                 <label for="agree">Eu concordo com os <b>termos e condições</b></label>
-                <div class="form-group">
+                <div class="form-group buttonsUpdate">
                     <button type="submit" id="btn-updateAboutMe">Enviar</button>
-                </div>
-                <div class="form-group">
                     <div id="buttonsUpdate">
                         <button type="button" class="btn-cancel">Cancelar</button>
                         <button type="button" class="btn-delete">Excluir conta</button>
@@ -273,10 +284,10 @@ class ProfileController {
         `;
         this.addEvents(dataUser);
     }
-    getPhoto() {
+    getPhoto(formEl) {
         return new Promise((resolve, reject) => {
             let fileReader = new FileReader();
-            let elements = [...this.formSettings.elements].filter(item => {
+            let elements = [...formEl.elements].filter(item => {
                 if (item.name === 'photo') {
                     return item;
                 }
@@ -295,10 +306,10 @@ class ProfileController {
             }
         })
     }
-    getValuesSettings() {
+    getValuesSettings(formEl) {
         let profile = {};
         let isValid = true;
-        [...this.formSettings.elements].forEach((field, index) => {
+        [...formEl.elements].forEach((field, index) => {
             if (['name', 'email', 'experience','password'].indexOf(field.name) > -1 && !field.value) {
                 field.parentElement.classList.add('has-error');
                 isValid = false;

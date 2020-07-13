@@ -249,6 +249,7 @@ header a span {
     text-align: center;
     color: rgb(56, 56, 212);
     font-weight: 600;
+    margin-bottom: 30px;
 }
 .email, .request, .comment {
     margin: 20px;
@@ -349,6 +350,7 @@ header a span {
 #btn-updateAboutMe {
     border: 1px solid rgb(36, 121, 85);
     background-color: rgb(63, 223, 148);
+    width: 70%;
 }
 #btn-updateAboutMe:hover {
     background-color: rgb(111, 233, 176);
@@ -357,6 +359,9 @@ header a span {
     display: flex;
     width: 100%;
     margin-top: 10px;
+}
+.buttonsUpdate {
+    margin-left: 40px;
 }
 .btn-cancel, .btn-delete {
     flex: 1;
