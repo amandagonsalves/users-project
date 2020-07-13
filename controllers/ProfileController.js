@@ -13,13 +13,33 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
-    onEditProfile() {
-         document.querySelector('.btn-edit').addEventListener('click', e => {
-             console.log('ols')
-         })
-         document.querySelector('.btn-cancel').addEventListener('click', e => {
+    addEvents(div) {
+        div.querySelector('.btn-edit').addEventListener('click', e => {
+            div.dataset.userProfile = JSON.stringify(dataUser);
+            let json = JSON.parse(div.dataset.userProfile);
+            console.log(json)
+            for (let name in json) {
+                let field = this.formUpdateSettings.querySelector('[name=' + name.replace('_', '') + ']');
+                if (field) {
+                    switch (field.type) {
+                        case 'file':
+                            continue;
+                        case 'checkbox':
+                            field.checked = json[name];
+                            break;
+                        default:
+                            field.value = json[name];
+                    }
+                }
+            }
+            this.formUpdateSettings.querySelector('.photo').src = json._photo;
+        })
+        document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
         });
+    }
+    onEditProfile() {
+       
     } 
     showCardsActivity() {
         let characters = [
@@ -237,7 +257,7 @@ class ProfileController {
                     <input type="file" name="photo" id="photo">
                 </div>
                 <input type="checkbox" name="agree" id="agree">
-                Eu concordo com os termos e condições
+                Eu concordo com os <b>termos e condições</b>
                 <div class="form-group">
                     <button type="submit" id="btn-updateAboutMe">Enviar</button>
                     <button type="button" class="btn-cancel">Cancelar</button>
@@ -245,24 +265,7 @@ class ProfileController {
             </div>
         </form>
         `
-        this.onEditProfile();
-        div.dataset.userProfile = JSON.stringify(dataUser);
-        let json = JSON.parse(div.dataset.userProfile);
-        for (let name in json) {
-            let field = this.formSettings.querySelector('[name=' + name.replace('_', '') + ']');
-            if (field) {
-                switch (field.type) {
-                    case 'file':
-                        continue;
-                    case 'checkbox':
-                        field.checked = json[name];
-                        break;
-                    default:
-                        field.value = json[name];
-                }
-            }
-        }
-        this.formSettings.querySelector('.photo').src = json._photo;
+        this.addEvents(this.formUpdateSettings);
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
