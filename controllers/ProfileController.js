@@ -13,13 +13,14 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
-    /* addEvents(formUpdateSettings) {
-        formUpdateSettings.querySelector('.btn-edit').addEventListener('click', e => {
-            formUpdateSettings.dataset.userProfile = JSON.stringify(dataUser);
-            let json = JSON.parse(formUpdateSettings.dataset.userProfile);
+    addEvents(dataUser) {
+        document.querySelector('#settings').addEventListener('click', e => {
+            let form = document.querySelector('#form-user-settings-update')
+            form.dataset.userProfile = JSON.stringify(dataUser);
+            let json = JSON.parse(form.dataset.userProfile);
             console.log(json)
             for (let name in json) {
-                let field = this.formUpdateSettings.querySelector('[name=' + name.replace('_', '') + ']');
+                let field = form.querySelector('[name=' + name.replace('_', '') + ']');
                 if (field) {
                     switch (field.type) {
                         case 'file':
@@ -30,19 +31,12 @@ class ProfileController {
                         default:
                             field.value = json[name];
                     }
-        div.querySelector('.btn-cancel').addEventListener('click', e => {
-            this.activity();
-        });
                 }
             }
-            this.formUpdateSettings.querySelector('.photo').src = json._photo;
+            form.querySelector('.photo').src = json._photo;
             this.showPanelUpdate();
         })
-        
-    } */ 
-    /* onEditProfile() {
-       
-    }  */
+    }
     showCardsActivity() {
         let characters = [
             {
@@ -274,28 +268,7 @@ class ProfileController {
             </div>
         </form>
         `;
-        document.querySelector('#settings').addEventListener('click', e => {
-            let form = document.querySelector('#form-user-settings-update')
-            form.dataset.userProfile = JSON.stringify(dataUser);
-            let json = JSON.parse(form.dataset.userProfile);
-            console.log(json)
-            for (let name in json) {
-                let field = form.querySelector('[name=' + name.replace('_', '') + ']');
-                if (field) {
-                    switch (field.type) {
-                        case 'file':
-                            continue;
-                        case 'checkbox':
-                            field.checked = json[name];
-                            break;
-                        default:
-                            field.value = json[name];
-                    }
-                }
-            }
-            form.querySelector('.photo').src = json._photo;
-            this.showPanelUpdate();
-        })
+        this.addEvents(dataUser);
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
