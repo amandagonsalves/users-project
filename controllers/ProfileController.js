@@ -13,12 +13,18 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
-    /* onEditProfile() {
-        let btn = this.formUpdateSettings.querySelector('[type=submit]');
+    onEditProfile() {
+        let form = document.querySelector('#form-user-settings-update')
+        let btn = form.querySelector('[type=submit]');
         btn.disabled = true;
-        let values = this.getValuesSettings(this.formUpdateSettings);
+        let values = this.getValuesSettings(form);
+        console.log(values);
+        let profileOld = JSON.parse(form.dataset.userProfile);
+        console.log(profileOld);
+        let result = Object.assign({}, profileOld, values);
+        console.log(result);
 
-    } */
+    } 
     addEvents(dataUser) {
         document.querySelector('#settings').addEventListener('click', e => {
             let form = document.querySelector('#form-user-settings-update')
@@ -41,10 +47,11 @@ class ProfileController {
             }
             form.querySelector('.photo').src = json._photo;
             this.showPanelUpdate();
-            /* form.addEventListener('submit', e => {
+            form.addEventListener('submit', e => {
                 e.preventDefault();
-                this.onEditProfile();
-            }) */
+                console.log('enviado')
+                this.onEditProfile(); 
+            }) 
         });
         document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
@@ -269,6 +276,10 @@ class ProfileController {
                 <div class="form-group">
                     <img src="/img/boxed-bg.jpg" alt="" class="photo" style="width:200px; height: 200px; margin-bottom:10px;">
                     <input type="file" name="photo" id="photo">
+                </div>
+                <div class="form-group">
+                    <label for="password">Redefinir senha</label>
+                    <input type="password" name="password" id="password">
                 </div>
                 <input type="checkbox" name="agree" id="agree">
                 <label for="agree">Eu concordo com os <b>termos e condições</b></label>
