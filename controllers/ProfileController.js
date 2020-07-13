@@ -274,6 +274,28 @@ class ProfileController {
             </div>
         </form>
         `;
+        document.querySelector('#settings').addEventListener('click', e => {
+            let form = document.querySelector('#form-user-settings-update')
+            form.dataset.userProfile = JSON.stringify(dataUser);
+            let json = JSON.parse(form.dataset.userProfile);
+            console.log(json)
+            for (let name in json) {
+                let field = form.querySelector('[name=' + name.replace('_', '') + ']');
+                if (field) {
+                    switch (field.type) {
+                        case 'file':
+                            continue;
+                        case 'checkbox':
+                            field.checked = json[name];
+                            break;
+                        default:
+                            field.value = json[name];
+                    }
+                }
+            }
+            form.querySelector('.photo').src = json._photo;
+            this.showPanelUpdate();
+        })
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
