@@ -13,7 +13,7 @@ class ProfileController {
         this.settingsPanelSuccess = document.querySelector('.settings-pub.success');
         this.settingsPanelUpdate = document.querySelector('.settings-pub.update');
     }
-    addEvents(div) {
+    /*addEvents(div) {
         div.querySelector('.btn-edit').addEventListener('click', e => {
             div.dataset.userProfile = JSON.stringify(dataUser);
             let json = JSON.parse(div.dataset.userProfile);
@@ -37,7 +37,7 @@ class ProfileController {
         document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
         });
-    }
+    } */
     onEditProfile() {
        
     } 
@@ -257,7 +257,7 @@ class ProfileController {
                     <input type="file" name="photo" id="photo">
                 </div>
                 <input type="checkbox" name="agree" id="agree">
-                Eu concordo com os <b>termos e condições</b>
+                <label for="agree">Eu concordo com os <b>termos e condições</b></label>
                 <div class="form-group">
                     <button type="submit" id="btn-updateAboutMe">Enviar</button>
                     <button type="button" class="btn-cancel">Cancelar</button>
@@ -265,7 +265,7 @@ class ProfileController {
             </div>
         </form>
         `
-        this.addEvents(this.formUpdateSettings);
+        /* this.addEvents(this.formUpdateSettings); */
     }
     getPhoto() {
         return new Promise((resolve, reject) => {
