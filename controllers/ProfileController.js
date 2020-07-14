@@ -23,6 +23,21 @@ class ProfileController {
         console.log(profileOld);
         let result = Object.assign({}, profileOld, values);
         console.log(result);
+        this.getPhoto(form).then(
+            content => {
+                if(!values.photo) {
+                    result._photo = profileOld._photo;
+                } else {
+                    result._photo = content;
+                }
+                let profile = new Profile();
+                profile.loadFromJSON(result);
+                this.addSettings(result);
+            },
+            e => {
+                console.error(e);
+            }
+        );
 
     } 
     addEvents(dataUser) {

@@ -43,14 +43,14 @@ class Profile {
     set agree(value) {
         this._agree = value;
     }
-    static getProfileStorage() {
+   /*  static getProfileStorage() {
         let profile = [];
         if(localStorage.getItem('profile')) {
             profile = JSON.parse(localStorage.getItem('profile'))
         }
         localStorage.setItem('profile',JSON.stringify(profile));
         return profile;
-    }
+    } */
     loadFromJSON(json) {
         for(let name in json) {
             this[name] = json[name];
