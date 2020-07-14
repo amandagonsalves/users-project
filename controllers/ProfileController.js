@@ -32,7 +32,47 @@ class ProfileController {
                 }
                 let profile = new Profile();
                 profile.loadFromJSON(result);
-                this.addSettings(result);
+                let div = document.querySelector('.profile');
+                div.innerHTML = `
+                <div class="contentProfile">
+                    <ul class="listProfile">
+                        <li id="nameSettings">
+                            <img src="${result._photo}" alt="" class="profileImg">
+                            <p>${result._name}</p>
+                        </li>
+                        <ul class="listInfo">
+                            <div class="n-followers">
+                                <li>Seguidores</li>
+                                <li id="numberFollowers">0</li>
+                            </div>
+                            <hr>
+                            <div class="n-following">
+                                <li>Seguindo</li>
+                                <li id="numberFollowing">0</li>
+                            </div>
+                            <hr>
+                            <div class="n-friends">
+                                <li>Amigos</li>
+                                <li id="numberFriends">0</li>
+                            </div>
+                        </ul>
+                    </ul>
+                    <div class="about">
+                        <h1>Sobre mim</h1>
+                        <ul class="aboutMe">
+                            <li>
+                                <h4>Contato</h4>
+                                <p>${(result._email) ? (result._email) : 'Nenhum adicionado'}</p>
+                            </li>
+                            <hr/>
+                            <li>
+                                <h4>Experiência</h4>
+                                <p>${(result._experience) ? (result._experience) : 'Nenhuma adicionada'}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                `;
             },
             e => {
                 console.error(e);
