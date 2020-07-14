@@ -18,11 +18,8 @@ class ProfileController {
         let btn = form.querySelector('[type=submit]');
         btn.disabled = true;
         let values = this.getValuesSettings(form);
-        console.log(values);
         let profileOld = JSON.parse(form.dataset.userProfile);
-        console.log(profileOld);
         let result = Object.assign({}, profileOld, values);
-        console.log(result);
         this.getPhoto(form).then(
             content => {
                 if(!values.photo) {
@@ -73,6 +70,9 @@ class ProfileController {
                     </div>
                 </div>
                 `;
+                this.addEvents(result);
+                btn.disabled = false;
+                this.activity();
             },
             e => {
                 console.error(e);
