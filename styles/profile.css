@@ -400,3 +400,21 @@ header a span {
     cursor: pointer;
     border-radius: 5px;
 }
+/*====================================*/
+#editedProfileConfig {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,.9325);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: 400ms;
+}
+#editedProfileConfig h1 {
+    color: white;
+}

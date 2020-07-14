@@ -72,20 +72,31 @@ class ProfileController {
                 `;
                 this.addEvents(result);
                 btn.disabled = false;
-                this.activity();
+                this.editedProfile();
+                setTimeout(()=>{
+                    document.querySelector('#editedProfile').style.display = 'none';
+                    this.activity();
+                }, 2000)
             },
             e => {
                 console.error(e);
             }
         );
-
     } 
+    editedProfile() {
+        document.querySelector('#editedProfile').style.display = 'block';
+        document.querySelector('#editedProfile').innerHTML = `
+            <div id="editedProfileConfig">
+                <img src="/img/check.svg"/>
+                <h1>Perfil atualizado</h1>
+            </div>
+        `
+    }
     addEvents(dataUser) {
         document.querySelector('#settings').addEventListener('click', e => {
             let form = document.querySelector('#form-user-settings-update')
             form.dataset.userProfile = JSON.stringify(dataUser);
             let json = JSON.parse(form.dataset.userProfile);
-            console.log(json)
             for (let name in json) {
                 let field = form.querySelector('[name=' + name.replace('_', '') + ']');
                 if (field) {
@@ -104,7 +115,6 @@ class ProfileController {
             this.showPanelUpdate();
             form.addEventListener('submit', e => {
                 e.preventDefault();
-                console.log('enviado')
                 this.onEditProfile(); 
             }) 
         });
