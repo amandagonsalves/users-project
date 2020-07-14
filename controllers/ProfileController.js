@@ -260,7 +260,11 @@ class ProfileController {
             );
         }); 
     }
+    insert(data) {
+        localStorage.setItem('profile', JSON.stringify(data));
+    }
     addSettings(dataUser) {
+        this.insert(dataUser);
         let div = document.querySelector('.profile');
         div.innerHTML = `
         <div class="contentProfile">
