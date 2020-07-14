@@ -83,6 +83,15 @@ class ProfileController {
             }
         );
     } 
+    profileCreated() {
+        document.querySelector('#editedProfile').style.display = 'block';
+        document.querySelector('#editedProfile').innerHTML = `
+            <div id="editedProfileConfig">
+                <img src="/img/check.svg"/>
+                <h1>Perfil criado</h1>
+            </div>
+        `
+    }
     editedProfile() {
         document.querySelector('#editedProfile').style.display = 'block';
         document.querySelector('#editedProfile').innerHTML = `
@@ -237,9 +246,13 @@ class ProfileController {
             this.getPhoto(this.formSettings).then(content => {
                 values.photo = content;
                 btn.disabled = false;
-                this.addSettings(values);
                 this.formSettings.reset();
-                this.activity();
+                this.profileCreated();
+                setTimeout(()=>{
+                    document.querySelector('#editedProfile').style.display = 'none';
+                    this.activity();
+                    this.addSettings(values);
+                }, 2000);
             },
                 e => {
                     console.log(e);
