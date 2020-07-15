@@ -206,18 +206,26 @@ class ProfileController {
                                     <p><b>Você comentou</b></p>
                                     <p>${commentT}</p>
                                 </td>
-                                <td><i class="fa fa-times"></i></td>
+                                <td><i class="fa fa-times" class="deleteComment"></i></td>
                             `
                             e.target.value = '';
                             item.appendChild(tr)
                             console.log(item);
+                            this.delete(tr)
                         }
                     })
                     console.log(comments)
                 }
             })
-            console.log(item)
+            console.log(item);
         }
+    }
+    delete(element) {
+        const tr = element.closest('tr');
+        const index = [...tr.parentNode.children].indexOf(tr);
+        /* trash.parentNode.removeChild(trash); */
+        console.log('Index era:', index); // só para o exemplo
+
     }
     activity() {
         this.activityPanel.style.display = 'block'
