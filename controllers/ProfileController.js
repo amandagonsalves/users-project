@@ -4,6 +4,7 @@ class ProfileController {
         this.showPanel();
         this.showCardsActivity();
         this.onSubmitProfile();
+        this.renderComments();
 
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
@@ -168,10 +169,23 @@ class ProfileController {
                 <i class="fa fa-like"></i>
                 <i class="fa fa-comment"></i>
             </div>
+            <ul id="renderComments"></ul>
             <input type="text" placeholder="Adicione um comentário"/>
         </div>
     `
     pub.appendChild(div);
+    }
+    renderComments() {
+        let data = [];
+        let comments = document.querySelector('#renderComments');
+        data.forEach(comment => {
+            let li = comments.createElement('li');
+            li.innerHTML = `´
+                <p><b>Você coomentou</b></p>
+                <p>${comment}</p>
+            `
+            comments.appendChild(li);
+        })
     }
     activity() {
         this.activityPanel.style.display = 'block'
