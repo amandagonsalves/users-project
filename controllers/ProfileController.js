@@ -206,6 +206,7 @@ class ProfileController {
                                     <p><b>Você comentou</b></p>
                                     <p>${commentT}</p>
                                 </td>
+                                <td><i class="fa fa-times"></i></td>
                             `
                             e.target.value = '';
                             item.appendChild(tr)

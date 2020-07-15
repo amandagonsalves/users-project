@@ -418,10 +418,22 @@ header a span {
 #editedProfileConfig h1 {
     color: white;
 }
+.renderComments {
+    display: block;
+}
 .renderComments .commentsP {
     display: flex;
-    margin-left: 10px;
 }
 .renderComments .commentsP p {
     margin: 3px;
+}
+.renderComments tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+.renderComments tr i {
+    color: rgb(73, 73, 73);
+    margin-right: 5px;
 }
