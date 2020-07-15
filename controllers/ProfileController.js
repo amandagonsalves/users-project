@@ -197,16 +197,18 @@ class ProfileController {
                     let comment = e.target.value
                     comments.push(comment);
                     comments.forEach(commentT => {
+                        comments = [];
                         let indexItem = -1;
                         for (let item of table) {
-                            let td = document.createElement('td');
-                            td.innerHTML = `
-                                <div id="${indexItem}" class="commentsP">
+                            let tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td id="${indexItem}" class="commentsP">
                                     <p><b>Você comentou</b></p>
                                     <p>${commentT}</p>
-                                </div>
+                                </td>
                             `
-                            item.appendChild(td)
+                            e.target.value = '';
+                            item.appendChild(tr)
                             console.log(item);
                         }
                     })
