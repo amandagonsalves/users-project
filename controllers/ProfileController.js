@@ -23,7 +23,7 @@ class ProfileController {
         let result = Object.assign({}, profileOld, values);
         this.getPhoto(form).then(
             content => {
-                if(!values.photo) {
+                if (!values.photo) {
                     result._photo = profileOld._photo;
                 } else {
                     result._photo = content;
@@ -74,7 +74,7 @@ class ProfileController {
                 this.addEvents(result);
                 btn.disabled = false;
                 this.editedProfile();
-                setTimeout(()=>{
+                setTimeout(() => {
                     document.querySelector('#editedProfile').style.display = 'none';
                     this.activity();
                 }, 2000)
@@ -83,7 +83,7 @@ class ProfileController {
                 console.error(e);
             }
         );
-    } 
+    }
     profileCreated() {
         document.querySelector('#editedProfile').style.display = 'block';
         document.querySelector('#editedProfile').innerHTML = `
@@ -125,8 +125,8 @@ class ProfileController {
             this.showPanelUpdate();
             form.addEventListener('submit', e => {
                 e.preventDefault();
-                this.onEditProfile(); 
-            }) 
+                this.onEditProfile();
+            })
         });
         document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
@@ -187,25 +187,29 @@ class ProfileController {
         }) */
         /* let index = table.dataset.trIndex
         console.log(index) */
-        let indexItem = -1;
-        for(let item of table) {
-            let td = document.createElement('td');
-            td.innerHTML = `
-                <div id="${indexItem}" class="commentsP">
-                    <p><b>Você comentou</b></p>
-                    <p>lalallala</p>
-                </div>
-            `
-            item.appendChild(td)
-            console.log(item);
-        }
-       
+
+
         let inputs = document.querySelectorAll('.activity-pub input');
-        for(let item of inputs) {
+        for (let item of inputs) {
             let comments = [];
             item.addEventListener('keyup', e => {
-                if(e.key === 'Enter') {
-                    comments.push(e.target.value)
+                if (e.key === 'Enter') {
+                    let comment = e.target.value
+                    comments.push(comment);
+                    comments.forEach(commentT => {
+                        let indexItem = -1;
+                        for (let item of table) {
+                            let td = document.createElement('td');
+                            td.innerHTML = `
+                                <div id="${indexItem}" class="commentsP">
+                                    <p><b>Você comentou</b></p>
+                                    <p>${commentT}</p>
+                                </div>
+                            `
+                            item.appendChild(td)
+                            console.log(item);
+                        }
+                    })
                     console.log(comments)
                 }
             })
@@ -235,7 +239,7 @@ class ProfileController {
     }
     showPanelActivity() {
         this.button('activity').addEventListener('click', e => {
-           this.activity();
+            this.activity();
         });
     }
     showPanelTimeline() {
@@ -287,7 +291,7 @@ class ProfileController {
                 btn.disabled = false;
                 this.formSettings.reset();
                 this.profileCreated();
-                setTimeout(()=>{
+                setTimeout(() => {
                     document.querySelector('#editedProfile').style.display = 'none';
                     this.activity();
                     this.addSettings(values);
@@ -297,7 +301,7 @@ class ProfileController {
                     console.log(e);
                 }
             );
-        }); 
+        });
     }
     insert(data) {
         localStorage.setItem('profile', JSON.stringify(data));
@@ -345,7 +349,7 @@ class ProfileController {
             </div>
         </div>
         `;
-        
+
         let timeline = document.querySelector('.timeline-pub');
         timeline.innerHTML = `
                     <div class="email">
@@ -376,7 +380,7 @@ class ProfileController {
                         <button id="tml-comment">Ver comentário</button>
                     </div>
         `;
-        
+
         let formUpdate = document.querySelector('.settings-pub.update');
         formUpdate.innerHTML = `
         <form action="" id="form-user-settings-update">
@@ -442,7 +446,7 @@ class ProfileController {
         let profile = {};
         let isValid = true;
         [...formEl.elements].forEach((field, index) => {
-            if (['name', 'email', 'experience','password'].indexOf(field.name) > -1 && !field.value) {
+            if (['name', 'email', 'experience', 'password'].indexOf(field.name) > -1 && !field.value) {
                 field.parentElement.classList.add('has-error');
                 isValid = false;
             }
