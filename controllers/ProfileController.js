@@ -169,23 +169,37 @@ class ProfileController {
                 <i class="fa fa-like"></i>
                 <i class="fa fa-comment"></i>
             </div>
-            <ul id="renderComments"></ul>
-            <input type="text" placeholder="Adicione um comentário"/>
+            <table class="renderComments"></table>
+            <input type="text" placeholder="Adicione um comentário" class="inputComment"/>
         </div>
     `
-    pub.appendChild(div);
+        pub.appendChild(div);
     }
     renderComments() {
-        let data = [];
-        let comments = document.querySelector('#renderComments');
-        data.forEach(comment => {
-            let li = comments.createElement('li');
-            li.innerHTML = `´
-                <p><b>Você coomentou</b></p>
-                <p>${comment}</p>
+        //get table
+        //get table index
+        //get table input
+
+        let table = document.querySelectorAll('.activity-pub table');
+        /* tables.push(table)
+        tables.forEach(table => {
+            console.log(table);
+        }) */
+        /* let index = table.dataset.trIndex
+        console.log(index) */
+        let indexItem = -1;
+        for(let item of table) {
+            let tr = document.createElement('td');
+            indexItem++;
+            tr.innerHTML = `
+                <div id="${indexItem}" class="commentsP">
+                    <p><b>Você comentou</b></p>
+                    <p>lalallala</p>
+                </div>
             `
-            comments.appendChild(li);
-        })
+            item.appendChild(tr)
+            console.log(item);
+        }
     }
     activity() {
         this.activityPanel.style.display = 'block'
