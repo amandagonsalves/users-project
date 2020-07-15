@@ -189,16 +189,27 @@ class ProfileController {
         console.log(index) */
         let indexItem = -1;
         for(let item of table) {
-            let tr = document.createElement('td');
-            indexItem++;
-            tr.innerHTML = `
+            let td = document.createElement('td');
+            td.innerHTML = `
                 <div id="${indexItem}" class="commentsP">
                     <p><b>Você comentou</b></p>
                     <p>lalallala</p>
                 </div>
             `
-            item.appendChild(tr)
+            item.appendChild(td)
             console.log(item);
+        }
+       
+        let inputs = document.querySelectorAll('.activity-pub input');
+        for(let item of inputs) {
+            let comments = [];
+            item.addEventListener('keyup', e => {
+                if(e.key === 'Enter') {
+                    comments.push(e.target.value)
+                    console.log(comments)
+                }
+            })
+            console.log(item)
         }
     }
     activity() {
