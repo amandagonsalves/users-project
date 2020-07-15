@@ -436,4 +436,5 @@ header a span {
 .renderComments tr i {
     color: rgb(73, 73, 73);
     margin-right: 5px;
+    cursor: pointer;
 }

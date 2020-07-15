@@ -176,45 +176,34 @@ class ProfileController {
         pub.appendChild(div);
     }
     renderComments() {
-        //get table
-        //get table index
-        //get table input
-
         let table = document.querySelectorAll('.activity-pub table');
-        /* tables.push(table)
-        tables.forEach(table => {
-            console.log(table);
-        }) */
-        /* let index = table.dataset.trIndex
-        console.log(index) */
-
-
         let inputs = document.querySelectorAll('.activity-pub input');
         for (let item of inputs) {
             let comments = [];
             item.addEventListener('keyup', e => {
                 if (e.key === 'Enter') {
-                    let comment = e.target.value
+                    let comment = e.target.value;
                     comments.push(comment);
+                    const itemId = e.target.dataset.id
+                    console.log(itemId)
                     comments.forEach(commentT => {
+                        console.log(comments);
                         comments = [];
-                        let indexItem = -1;
                         for (let item of table) {
                             let tr = document.createElement('tr');
                             tr.innerHTML = `
-                                <td id="${indexItem}" class="commentsP">
+                                <td class="commentsP">
                                     <p><b>Você comentou</b></p>
                                     <p>${commentT}</p>
                                 </td>
                                 <td><i class="fa fa-times" class="deleteComment"></i></td>
                             `
                             e.target.value = '';
-                            item.appendChild(tr)
+                            item.appendChild(tr);
                             console.log(item);
-                            this.delete(tr)
+                            this.delete(tr);
                         }
                     })
-                    console.log(comments)
                 }
             })
             console.log(item);
@@ -224,7 +213,7 @@ class ProfileController {
         const tr = element.closest('tr');
         const index = [...tr.parentNode.children].indexOf(tr);
         /* trash.parentNode.removeChild(trash); */
-        console.log('Index era:', index); // só para o exemplo
+        console.log('Index: ', index); // só para o exemplo
 
     }
     activity() {
