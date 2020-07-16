@@ -176,7 +176,7 @@ class ProfileController {
         pub.appendChild(div);
     }
     renderComments() {
-        let table = document.querySelectorAll('.activity-pub table');
+        /* let table = document.querySelectorAll('.activity-pub table');
         let inputs = document.querySelectorAll('.activity-pub input');
         for (let item of inputs) {
             let comments = [];
@@ -207,6 +207,36 @@ class ProfileController {
                 }
             })
             console.log(item);
+        } */
+        const items = document.querySelectorAll('.activity-pub table');
+        for (const item of items) {
+            item.addEventListener('click', handleSelectedItem)
+        }
+        const collectedItems = document.querySelector('input[name="items"]');
+        let selectedItems = []
+        function handleSelectedItem(event) {
+            const itemLi = event.target
+            itemLi.classList.toggle('selected')
+            const itemId = event.target.dataset.id
+            const alreadySelected = selectedItems.findIndex(item => {
+                const itemFound = item == itemId;
+                return itemFound
+            })
+
+            if (alreadySelected >= 0) {
+                const filteredItems = selectedItems.filter(item => {
+                    const itemIsDifferent = item != itemId
+                    return itemIsDifferent
+                })
+                selectedItems = filteredItems
+
+            } else {
+                selectedItems.push(itemId)
+            }
+
+            collectedItems.value = selectedItems
+            console.log(collectedItems)
+            console.log('Item id:', itemId)
         }
     }
     delete(element) {
