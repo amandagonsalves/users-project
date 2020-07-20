@@ -4,6 +4,7 @@ class ProfileController {
         this.showPanel();
         this.showCardsActivity();
         this.onSubmitProfile();
+        this.renderComment();
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
 
@@ -153,7 +154,46 @@ class ProfileController {
             this.renderCardActivity(character);
         });
     }
-    
+    renderComment() {
+        let data = [];
+        /* console.log(item)
+                    console.log(e.target.value)
+                    for(let item of table) {
+                        let tr = document.createElement('td');
+                        tr.innerHTML = `
+                            <p>Você comentou ${e.target.value}</p>
+                        `
+                        item.appendChild(tr)
+                    } */
+        
+        data.forEach(comment => {
+            let li = document.createElement('li');
+            let ul = document.querySelectorAll('.renderComments')
+
+            li.innerHTML = `
+                <p id="comment-${comment.id}">Você comentou ${comment.phrase}</p>
+                <button type="button">X</button>
+            `
+            ul.appendChild(li)
+
+        });
+    }
+    commentKbd() {
+        let inputs = document.querySelectorAll('.inputComment');
+        for(let item of inputs) {
+            item.addEventListener('keyup', e => {
+                if(e.key === 'Enter') {
+                    data.push({
+                        id: data.length+1,
+                        phrase: e.target.value
+                    });
+                    e.target.value = '';
+                    renderComment();
+                    
+                }
+            })
+        }
+    }
     renderCardActivity(character) {
         let pub = document.querySelector('.activity-pub');
         let div = document.createElement('div');
@@ -169,29 +209,11 @@ class ProfileController {
                 <i class="fa fa-like"></i>
                 <i class="fa fa-comment"></i>
             </div>
-            <table class="renderComments"></table>
+            <ul class="renderComments"></ul>
             <input type="text" placeholder="Adicione um comentário" class="inputComment" id="${character.id}"/>
         </div>
     `
         pub.appendChild(div);
-        let inputs = document.querySelectorAll('.inputComment');
-        let table = document.querySelectorAll('.renderComments');
-        let data = [];
-        for(let item of inputs) {
-            item.addEventListener('keyup', e => {
-                if(e.key === 'Enter') {
-                    console.log(item)
-                    console.log(e.target.value)
-                    for(let item of table) {
-                        let tr = document.createElement('td');
-                        tr.innerHTML = `
-                            <p>Você comentou ${e.target.value}</p>
-                        `
-                        item.appendChild(tr)
-                    }
-                }
-            })
-        }
     }
     activity() {
         this.activityPanel.style.display = 'block'
