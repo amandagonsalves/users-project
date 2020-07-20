@@ -175,11 +175,15 @@ class ProfileController {
                         `
                         ul.appendChild(li)
                         e.target.value = '';
-                        document.querySelector('#delete-comment').addEventListener('click', e => {
-                            if(confirm('Excluir comentário?')){
-                                li.remove();
-                            }
-                        })
+                        let allComments = ul.querySelectorAll('li');
+                        for(let comment of allComments) {
+                            comment.querySelector('#delete-comment').addEventListener('click', e => {
+                               /*  if(confirm('Excluir comentário?')){ */
+                                    comment.remove();
+                                /* } */
+                            })
+                        }
+                        
                     }
                 }
             })
