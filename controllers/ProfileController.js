@@ -168,14 +168,23 @@ class ProfileController {
                         let li = document.createElement('li');
                         li.innerHTML = `
                                 <p><b>Você comentou</b> ${e.target.value}</p>
-                                <i class="fa fa-trash"></i>
+                                <div class="icons-comments">
+                                    <i class="fa fa-heart" class="comment-like"></i>
+                                    <i class="fa fa-trash" id="delete-comment"></i>
+                                </div>
                         `
                         ul.appendChild(li)
                         e.target.value = '';
+                        document.querySelector('#delete-comment').addEventListener('click', e => {
+                            if(confirm('Excluir comentário?')){
+                                li.remove();
+                            }
+                        })
                     }
                 }
             })
         }
+        
     }
     renderCardActivity(character) {
         let pub = document.querySelector('.activity-pub');
