@@ -156,25 +156,23 @@ class ProfileController {
     }
     renderComment() {
         let inputs = document.querySelectorAll('.inputComment');
-        for(let item of inputs) {
+        for (let item of inputs) {
             item.addEventListener('keyup', e => {
-                if(e.key === 'Enter') {
-                    let itemId = item.id;
-                    let li = document.createElement('li');
-                    li.innerHTML = `
-                        <p><b>Você comentou</b> ${e.target.value}</p>
-                        <i class="fa fa-times"></i>
-                    `
-                    let elements =  document.querySelectorAll('.renderComments');
-                    for(let item of elements) {
-                        for(let i=0; i < elements.length; i++) {
-                            console.log(item[i])
-                        }
-                    }/* 
-                    let ulIndex = document.querySelector('.renderComments').indexOf(this)
-                    console.log(ulIndex) */
-                    document.querySelector('.renderComments').appendChild(li)
-                    e.target.value = '';
+                if (e.key === 'Enter') {
+                    let comment = e.target;
+                    let div = comment.parentNode;
+                    let input = div.querySelector('input');
+                    let ul = div.querySelector('ul');
+                    let id = input.id;
+                    if (id > 0) {
+                        let li = document.createElement('li');
+                        li.innerHTML = `
+                                <p><b>Você comentou</b> ${e.target.value}</p>
+                                <i class="fa fa-trash"></i>
+                        `
+                        ul.appendChild(li)
+                        e.target.value = '';
+                    }
                 }
             })
         }
