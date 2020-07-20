@@ -420,20 +420,20 @@ header a span {
 }
 .renderComments {
     display: block;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-.renderComments .commentsP {
-    display: flex;
-}
-.renderComments .commentsP p {
-    margin: 3px;
-}
-.renderComments tr {
+.renderComments li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
+    margin: 2px;
 }
-.renderComments tr i {
+.renderComments li p {
+    margin: 0;
+    margin-left: 10px;
+}
+.renderComments li i {
     color: rgb(73, 73, 73);
     margin-right: 5px;
     cursor: pointer;

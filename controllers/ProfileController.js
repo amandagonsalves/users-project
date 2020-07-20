@@ -159,8 +159,22 @@ class ProfileController {
         for(let item of inputs) {
             item.addEventListener('keyup', e => {
                 if(e.key === 'Enter') {
-                    alert(item.id)
-                    console.log(e.target.value)
+                    let itemId = item.id;
+                    let li = document.createElement('li');
+                    li.innerHTML = `
+                        <p><b>Você comentou</b> ${e.target.value}</p>
+                        <i class="fa fa-times"></i>
+                    `
+                    let elements =  document.querySelectorAll('.renderComments');
+                    for(let item of elements) {
+                        for(let i=0; i < elements.length; i++) {
+                            console.log(item[i])
+                        }
+                    }/* 
+                    let ulIndex = document.querySelector('.renderComments').indexOf(this)
+                    console.log(ulIndex) */
+                    document.querySelector('.renderComments').appendChild(li)
+                    e.target.value = '';
                 }
             })
         }
