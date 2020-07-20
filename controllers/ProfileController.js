@@ -155,41 +155,12 @@ class ProfileController {
         });
     }
     renderComment() {
-        let data = [];
-        /* console.log(item)
-                    console.log(e.target.value)
-                    for(let item of table) {
-                        let tr = document.createElement('td');
-                        tr.innerHTML = `
-                            <p>Você comentou ${e.target.value}</p>
-                        `
-                        item.appendChild(tr)
-                    } */
-        
-        data.forEach(comment => {
-            let li = document.createElement('li');
-            let ul = document.querySelectorAll('.renderComments')
-
-            li.innerHTML = `
-                <p id="comment-${comment.id}">Você comentou ${comment.phrase}</p>
-                <button type="button">X</button>
-            `
-            ul.appendChild(li)
-
-        });
-    }
-    commentKbd() {
         let inputs = document.querySelectorAll('.inputComment');
         for(let item of inputs) {
             item.addEventListener('keyup', e => {
                 if(e.key === 'Enter') {
-                    data.push({
-                        id: data.length+1,
-                        phrase: e.target.value
-                    });
-                    e.target.value = '';
-                    renderComment();
-                    
+                    alert(item.id)
+                    console.log(e.target.value)
                 }
             })
         }
