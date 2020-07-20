@@ -4,8 +4,6 @@ class ProfileController {
         this.showPanel();
         this.showCardsActivity();
         this.onSubmitProfile();
-        this.renderComments();
-
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
 
@@ -131,21 +129,22 @@ class ProfileController {
         document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
         });
-        document.querySelector('.btn-delete').addEventListener('click', e => {
-            alert('deletar')
-        });
+        this.deleteProfile();
     }
     showCardsActivity() {
         let characters = [
             {
+                id: 1,
                 name: 'Jonathan',
                 imgProfile: '/img/user1-128x128.jpg'
             },
             {
+                id: 2,
                 name: 'Maria',
                 imgProfile: '/img/user4-128x128.jpg'
             },
             {
+                id: 3,
                 name: 'Lucas',
                 imgProfile: '/img/user6-128x128.jpg'
             }
@@ -154,6 +153,7 @@ class ProfileController {
             this.renderCardActivity(character);
         });
     }
+    
     renderCardActivity(character) {
         let pub = document.querySelector('.activity-pub');
         let div = document.createElement('div');
@@ -170,81 +170,28 @@ class ProfileController {
                 <i class="fa fa-comment"></i>
             </div>
             <table class="renderComments"></table>
-            <input type="text" placeholder="Adicione um comentário" class="inputComment"/>
+            <input type="text" placeholder="Adicione um comentário" class="inputComment" id="${character.id}"/>
         </div>
     `
         pub.appendChild(div);
-    }
-    renderComments() {
-        /* let table = document.querySelectorAll('.activity-pub table');
-        let inputs = document.querySelectorAll('.activity-pub input');
-        for (let item of inputs) {
-            let comments = [];
+        let inputs = document.querySelectorAll('.inputComment');
+        let table = document.querySelectorAll('.renderComments');
+        let data = [];
+        for(let item of inputs) {
             item.addEventListener('keyup', e => {
-                if (e.key === 'Enter') {
-                    let comment = e.target.value;
-                    comments.push(comment);
-                    const itemId = e.target.dataset.id
-                    console.log(itemId)
-                    comments.forEach(commentT => {
-                        console.log(comments);
-                        comments = [];
-                        for (let item of table) {
-                            let tr = document.createElement('tr');
-                            tr.innerHTML = `
-                                <td class="commentsP">
-                                    <p><b>Você comentou</b></p>
-                                    <p>${commentT}</p>
-                                </td>
-                                <td><i class="fa fa-times" class="deleteComment"></i></td>
-                            `
-                            e.target.value = '';
-                            item.appendChild(tr);
-                            console.log(item);
-                            this.delete(tr);
-                        }
-                    })
+                if(e.key === 'Enter') {
+                    console.log(item)
+                    console.log(e.target.value)
+                    for(let item of table) {
+                        let tr = document.createElement('td');
+                        tr.innerHTML = `
+                            <p>Você comentou ${e.target.value}</p>
+                        `
+                        item.appendChild(tr)
+                    }
                 }
             })
-            console.log(item);
-        } */
-        const items = document.querySelectorAll('.activity-pub table');
-        for (const item of items) {
-            item.addEventListener('click', handleSelectedItem)
         }
-        const collectedItems = document.querySelector('input[name="items"]');
-        let selectedItems = []
-        function handleSelectedItem(event) {
-            const itemLi = event.target
-            itemLi.classList.toggle('selected')
-            const itemId = event.target.dataset.id
-            const alreadySelected = selectedItems.findIndex(item => {
-                const itemFound = item == itemId;
-                return itemFound
-            })
-
-            if (alreadySelected >= 0) {
-                const filteredItems = selectedItems.filter(item => {
-                    const itemIsDifferent = item != itemId
-                    return itemIsDifferent
-                })
-                selectedItems = filteredItems
-
-            } else {
-                selectedItems.push(itemId)
-            }
-
-            collectedItems.value = selectedItems
-            console.log(collectedItems)
-            console.log('Item id:', itemId)
-        }
-    }
-    delete(element) {
-        const tr = element.closest('tr');
-        const index = [...tr.parentNode.children].indexOf(tr);
-        /* trash.parentNode.removeChild(trash); */
-        console.log('Index: ', index); // só para o exemplo
-
     }
     activity() {
         this.activityPanel.style.display = 'block'
