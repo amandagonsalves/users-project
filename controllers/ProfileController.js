@@ -314,12 +314,52 @@ class ProfileController {
         localStorage.setItem('profile', JSON.stringify(data));
     }
     selectProfile() {
-        let profiles = Profile.getProfileStorage();
-        profiles.forEach(dataUser => {
-            let profile = new Profile();
-            profile.loadFromJSON(dataUser);
+        if(localStorage.getItem('profile')) {
+            let profile = JSON.parse(localStorage.getItem('profile'))
             this.addSettings(profile)
-        })
+            let div = document.querySelector('.profile');
+            div.innerHTML = `
+            <div class="contentProfile">
+                <ul class="listProfile">
+                    <li id="nameSettings">
+                        <img src="${profile._photo}" alt="" class="profileImg">
+                        <p>${profile._name}</p>
+                    </li>
+                    <ul class="listInfo">
+                        <div class="n-followers">
+                            <li>Seguidores</li>
+                            <li id="numberFollowers">0</li>
+                        </div>
+                        <hr>
+                        <div class="n-following">
+                            <li>Seguindo</li>
+                            <li id="numberFollowing">0</li>
+                        </div>
+                        <hr>
+                        <div class="n-friends">
+                            <li>Amigos</li>
+                            <li id="numberFriends">0</li>
+                        </div>
+                    </ul>
+                </ul>
+                <div class="about">
+                    <h1>Sobre mim</h1>
+                    <ul class="aboutMe">
+                        <li>
+                            <h4>Contato</h4>
+                            <p>${(profile._email) ? (profile._email) : 'Nenhum adicionado'}</p>
+                        </li>
+                        <hr/>
+                        <li>
+                            <h4>Experiência</h4>
+                            <p>${(profile._experience) ? (profile._experience) : 'Nenhuma adicionada'}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            `;
+
+        }
     }
     addSettings(dataUser) {
         this.insert(dataUser);
