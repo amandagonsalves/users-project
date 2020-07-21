@@ -169,7 +169,7 @@ class ProfileController {
                         li.innerHTML = `
                                 <p><b>Você comentou</b> ${e.target.value}</p>
                                 <div class="icons-comments">
-                                    <i class="fa fa-heart" class="comment-like"></i>
+                                    <i class="fa fa-heart" id="comment-like"></i>
                                     <i class="fa fa-trash" id="delete-comment"></i>
                                 </div>
                         `
@@ -178,9 +178,10 @@ class ProfileController {
                         let allComments = ul.querySelectorAll('li');
                         for(let comment of allComments) {
                             comment.querySelector('#delete-comment').addEventListener('click', e => {
-                               /*  if(confirm('Excluir comentário?')){ */
-                                    comment.remove();
-                                /* } */
+                                comment.remove();
+                            });
+                            comment.querySelector('#comment-like').addEventListener('click', e => {
+                                comment.classList.hover('selected')
                             })
                         }
                         

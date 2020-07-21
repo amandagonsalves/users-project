@@ -434,7 +434,6 @@ header a span {
     margin-left: 10px;
 }
 .renderComments li i {
-   /*  color: rgb(73, 73, 73); */
     margin-right: 5px;
     cursor: pointer;
     padding: 3px;
@@ -442,6 +441,9 @@ header a span {
 .renderComments .icons-comments {
     display: flex;
     align-items: center;
+}
+.renderComments li i:hover {
+    
 }
 .selected {
     color: rgb(55, 207, 118);
