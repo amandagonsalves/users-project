@@ -89,6 +89,7 @@ header a span {
 }
 #description p {
     text-align: justify;
+    line-height: 25px;
 }
 .about, .content-timeline {
     border-top: 5px solid rgb(128, 180, 240);
@@ -215,13 +216,13 @@ header a span {
     display: flex;
     align-items: center;
     margin: 0 10px 10px 10px;
-    border-bottom: 1px solid rgb(187, 187, 187);
+    border-bottom: 0.5px solid rgb(96, 189, 135);
 }
 .img-circle {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    border: 2px solid lightslategray;
+    border: 2px solid rgb(1, 212, 89);
     margin: 10px;
 }
 #profile-head img, #profile-head p, #icons-activity i {
@@ -231,6 +232,7 @@ header a span {
     text-align: justify;
     margin: 15px;
     line-height: 28px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #icons-activity {
     margin: 20px;
@@ -442,9 +444,7 @@ header a span {
     display: flex;
     align-items: center;
 }
-.renderComments li i:hover {
-    
-}
 .selected {
-    color: rgb(55, 207, 118);
+    color: rgb(1, 212, 89);
+    transition: 200ms;
 }

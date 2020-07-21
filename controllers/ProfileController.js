@@ -5,6 +5,8 @@ class ProfileController {
         this.showCardsActivity();
         this.onSubmitProfile();
         this.renderComment();
+        this.selectProfile();
+
         this.formSettings = document.querySelector(formIdCreate);
         this.formUpdateSettings = document.querySelector(formIdUpdate);
 
@@ -100,7 +102,15 @@ class ProfileController {
                 <h1>Perfil atualizado</h1>
             </div>
         `
-    }
+    }/* 
+    deleteProfile(data) {
+        let btnDelete = document.querySelector('.btn-delete');
+        btnDelete.addEventListener('click', e => {
+            if(confirm('Deseja realmente excluir sua conta?')) {
+                console.log('ola')
+            }
+        })
+    } */
     addEvents(dataUser) {
         document.querySelector('#settings').addEventListener('click', e => {
             let form = document.querySelector('#form-user-settings-update')
@@ -129,8 +139,8 @@ class ProfileController {
         });
         document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
-        });
-        this.deleteProfile();
+        });/* 
+        this.deleteProfile(); */
     }
     showCardsActivity() {
         let characters = [
@@ -180,9 +190,10 @@ class ProfileController {
                             comment.querySelector('#delete-comment').addEventListener('click', e => {
                                 comment.remove();
                             });
-                            comment.querySelector('#comment-like').addEventListener('click', e => {
-                                comment.classList.hover('selected')
-                            })
+                            /* comment.querySelector('#comment-like').addEventListener('click', e => {
+                                console.log('ola')
+                                 comment.querySelector('#comment-like').classList.toggle('selected');
+                            })  */
                         }
                         
                     }
@@ -301,6 +312,14 @@ class ProfileController {
     }
     insert(data) {
         localStorage.setItem('profile', JSON.stringify(data));
+    }
+    selectProfile() {
+        let profiles = Profile.getProfileStorage();
+        profiles.forEach(dataUser => {
+            let profile = new Profile();
+            profile.loadFromJSON(dataUser);
+            this.addSettings(profile)
+        })
     }
     addSettings(dataUser) {
         this.insert(dataUser);
