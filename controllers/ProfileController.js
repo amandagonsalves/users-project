@@ -31,6 +31,7 @@ class ProfileController {
                 }
                 let profile = new Profile();
                 profile.loadFromJSON(result);
+                this.save(result);
                 let div = document.querySelector('.profile');
                 div.innerHTML = `
                 <div class="contentProfile">
@@ -312,7 +313,7 @@ class ProfileController {
         });
     }
     insert(data) {
-        localStorage.setItem('profile', JSON.stringify(data));
+        return localStorage.setItem('profile', JSON.stringify(data));
     }
     selectProfile() {
         if(localStorage.getItem('profile')) {
@@ -362,8 +363,8 @@ class ProfileController {
 
         }
     }
-    save() {
-        let profile = this.insert();
+    save(data) {
+        localStorage.setItem('profile',JSON.stringify(data));
     }
     addSettings(dataUser) {
         this.insert(dataUser);
