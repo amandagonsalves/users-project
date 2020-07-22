@@ -103,15 +103,17 @@ class ProfileController {
                 <h1>Perfil atualizado</h1>
             </div>
         `
-    }/* 
-    deleteProfile(data) {
+    }
+    deleteProfile(dataUser) {
         let btnDelete = document.querySelector('.btn-delete');
         btnDelete.addEventListener('click', e => {
             if(confirm('Deseja realmente excluir sua conta?')) {
+                localStorage.clear();
+                window.location.reload()
                 console.log('ola')
             }
         })
-    } */
+    } 
     addEvents(dataUser) {
         document.querySelector('#settings').addEventListener('click', e => {
             let form = document.querySelector('#form-user-settings-update')
@@ -140,8 +142,8 @@ class ProfileController {
         });
         document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
-        });/* 
-        this.deleteProfile(); */
+        });
+        this.deleteProfile(dataUser); 
     }
     showCardsActivity() {
         let characters = [
