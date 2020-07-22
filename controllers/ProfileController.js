@@ -217,7 +217,9 @@ class ProfileController {
                 <img src="${character.imgProfile}" class="img-circle"/>
                 <p>${character.name}</p>
             </div>
+            <div id="text-activity-card">
             <p>Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue for its demise, but others ignore the hate as they create awesome tools to help create filler text for everyone from bacon lovers to Charlie Sheen fans.</p>
+            </div>
             <div id="icons-activity">
                 <i class="fa fa-share"></i>
                 <i class="fa fa-like"></i>

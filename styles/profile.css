@@ -228,7 +228,7 @@ header a span {
 #profile-head img, #profile-head p, #icons-activity i {
     cursor: pointer;
 }
-.activity-pub p {
+#text-activity-card p {
     text-align: justify;
     margin: 15px;
     line-height: 28px;
@@ -241,6 +241,17 @@ header a span {
 }
 #icons-activity i {
     padding: 5;
+}
+#align-comment {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+#align-p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
 }
 /*===timeline====*/
 .timeline-pub {
@@ -419,33 +430,6 @@ header a span {
 }
 #editedProfileConfig h1 {
     color: white;
-}
-.renderComments li {
-    list-style: none;
-    margin: 10px;
-    background-color: rgb(231, 231, 231);
-}
-#align-comment {
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-}
-#align-p {
-    margin: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-.renderComments li p {
-    text-align: left;
-}
-.renderComments li i {
-    margin-right: 5px;
-    cursor: pointer;
-    padding: 3px;
-}
-.renderComments .icons-comments {
-    display: flex;
-    align-items: center;
 }
 .selected {
     color: rgb(1, 212, 89);
