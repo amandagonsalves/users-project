@@ -431,11 +431,11 @@ header a span {
     flex-direction: column;
 }
 #align-p {
+    margin: 10px;
     display: flex;
     justify-content: space-between;
 }
 .renderComments li p {
-    margin: 10px;
     text-align: left;
 }
 .renderComments li i {
