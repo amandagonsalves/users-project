@@ -20,8 +20,7 @@ body, .profile{
 }
 .icon-users {
     display: flex;
-    margin: 20px 10px 10px 10px;
-    border-bottom: 1px solid rgb(44, 44, 44);
+    padding: 10px;
 }
 .content-menu p {
     margin: 10px;
@@ -29,7 +28,7 @@ body, .profile{
     text-align: center;
 }
 .icon-users a {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .open {
     left: 0;

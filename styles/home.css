@@ -43,6 +43,9 @@ body {
     display: flex;
     align-items: center;
 }
+.icon-user i {
+    margin-right: 5px;
+}
 .icon-user-menu {
     display: flex;
     align-items: center;
@@ -75,11 +78,11 @@ body {
 .text-menu span {
     margin: 10px;
 }
-.text-menu-users, .icon-user-menu {
+.text-menu-users, .icon-user-menu, .icon-users {
     border-left: 5px solid rgb(39, 189, 89);
     cursor: pointer;
 }
-.text-menu-users:hover,  .icon-user-menu:hover {
+.text-menu-users:hover,  .icon-user-menu:hover, .icon-users:hover{
     border-left: 5px solid rgb(137, 224, 166);
 }
 section {
