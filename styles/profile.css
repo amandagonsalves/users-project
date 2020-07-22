@@ -420,20 +420,23 @@ header a span {
 #editedProfileConfig h1 {
     color: white;
 }
-.renderComments {
-    display: block;
-    margin-left: 10px;
-    margin-right: 10px;
-}
 .renderComments li {
+    list-style: none;
+    margin: 10px;
+    background-color: rgb(231, 231, 231);
+}
+#align-comment {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+#align-p {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 2px;
 }
 .renderComments li p {
-    margin: 0;
-    margin-left: 10px;
+    margin: 10px;
+    text-align: left;
 }
 .renderComments li i {
     margin-right: 5px;
@@ -447,4 +450,4 @@ header a span {
 .selected {
     color: rgb(1, 212, 89);
     transition: 200ms;
-}
+} 

@@ -104,16 +104,15 @@ class ProfileController {
             </div>
         `
     }
-    deleteProfile(dataUser) {
+    deleteProfile() {
         let btnDelete = document.querySelector('.btn-delete');
         btnDelete.addEventListener('click', e => {
-            if(confirm('Deseja realmente excluir sua conta?')) {
+            if (confirm('Deseja realmente excluir sua conta?')) {
                 localStorage.clear();
-                window.location.reload()
-                console.log('ola')
+                window.location.reload();
             }
         })
-    } 
+    }
     addEvents(dataUser) {
         document.querySelector('#settings').addEventListener('click', e => {
             let form = document.querySelector('#form-user-settings-update')
@@ -143,7 +142,7 @@ class ProfileController {
         document.querySelector('.btn-cancel').addEventListener('click', e => {
             this.activity();
         });
-        this.deleteProfile(dataUser); 
+        this.deleteProfile();
     }
     showCardsActivity() {
         let characters = [
@@ -179,31 +178,35 @@ class ProfileController {
                     let id = input.id;
                     if (id > 0) {
                         let li = document.createElement('li');
-                        li.innerHTML = `
-                                <p><b>Você comentou</b> ${e.target.value}</p>
-                                <div class="icons-comments">
-                                    <i class="fa fa-heart" id="comment-like"></i>
-                                    <i class="fa fa-trash" id="delete-comment"></i>
+                            li.innerHTML = `
+                            <div id="align-comment">
+                                <div id="align-p">
+                                    <b>Você comentou</b> 
+                                    <div class="icons-comments">
+                                        <i class="fa fa-heart" id="comment-like"></i>
+                                        <i class="fa fa-trash" id="delete-comment"></i>
+                                    </div>
                                 </div>
-                        `
-                        ul.appendChild(li)
-                        e.target.value = '';
-                        let allComments = ul.querySelectorAll('li');
-                        for(let comment of allComments) {
-                            comment.querySelector('#delete-comment').addEventListener('click', e => {
-                                comment.remove();
-                            });
-                            /* comment.querySelector('#comment-like').addEventListener('click', e => {
-                                console.log('ola')
-                                 comment.querySelector('#comment-like').classList.toggle('selected');
-                            })  */
-                        }
+                                <p>${e.target.value}</p>
+                            <div>
+                            
+                            
+                            `
+                            ul.appendChild(li)
+                            e.target.value = '';
+                            let allComments = ul.querySelectorAll('li');
+                            for (let comment of allComments) {
+                                comment.querySelector('#delete-comment').addEventListener('click', e => {
+                                    comment.remove();
+                                });
+                            }
                         
+
                     }
                 }
             })
         }
-        
+
     }
     renderCardActivity(character) {
         let pub = document.querySelector('.activity-pub');
@@ -318,7 +321,7 @@ class ProfileController {
         localStorage.setItem('profile', JSON.stringify(data));
     }
     selectProfile() {
-        if(localStorage.getItem('profile')) {
+        if (localStorage.getItem('profile')) {
             let profile = JSON.parse(localStorage.getItem('profile'))
             this.addSettings(profile)
             let div = document.querySelector('.profile');
