@@ -43,23 +43,14 @@ body {
     display: flex;
     align-items: center;
 }
-.icon-user img {
-    margin-right: 5px;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-}
-.icon-user-menu{
+.icon-user-menu {
     display: flex;
     align-items: center;
-    height: 80px;
-    margin: 10px;
+    margin-bottom: 5px;
 }
-.icon-user-menu img {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    margin-right: 15px;
+.icon-user-menu a {
+    padding: 10px;
+    margin-left: 2px;
 }
 .text-user {
     display: flex;
@@ -72,6 +63,7 @@ body {
     background-color: rgb(40, 48, 48);
     font-size: 0.5rem;
     text-transform: uppercase;
+    text-align: center;
 }
 .title-menu h1 {
     padding: 10px;
@@ -83,11 +75,11 @@ body {
 .text-menu span {
     margin: 10px;
 }
-.text-menu-users {
+.text-menu-users, .icon-user-menu {
     border-left: 5px solid rgb(39, 189, 89);
     cursor: pointer;
 }
-.text-menu-users:hover {
+.text-menu-users:hover,  .icon-user-menu:hover {
     border-left: 5px solid rgb(137, 224, 166);
 }
 section {
