@@ -18,7 +18,6 @@
         transition: 400ms;
     }
     .header {
-        height: 80px;
         width: 100%;
         display: flex;
         flex-direction: column;
