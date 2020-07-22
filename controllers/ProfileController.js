@@ -189,8 +189,6 @@ class ProfileController {
                                 </div>
                                 <p>${e.target.value}</p>
                             <div>
-                            
-                            
                             `
                             ul.appendChild(li)
                             e.target.value = '';

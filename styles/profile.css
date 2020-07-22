@@ -247,6 +247,9 @@ header a span {
     flex-direction: column;
     margin: 20px;
 }
+.renderComments li {
+    list-style: none;
+}
 #align-p {
     display: flex;
     justify-content: space-between;
