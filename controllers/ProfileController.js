@@ -364,7 +364,7 @@ class ProfileController {
         }
     }
     save(data) {
-        localStorage.setItem('profile',JSON.stringify(data));
+        this.insert(data);
     }
     addSettings(dataUser) {
         this.insert(dataUser);
