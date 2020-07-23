@@ -264,7 +264,6 @@ class ProfileController {
                 btn.disabled = false;
                 this.formSettings.reset();
                 this.profileCreated();
-                console.log(window.location.search)
                 setTimeout(() => {
                     document.querySelector('#editedProfile').style.display = 'none';
                     this.activity();
@@ -284,9 +283,8 @@ class ProfileController {
     selectProfile() {
         if (localStorage.getItem('profile')) {
             let profile = JSON.parse(localStorage.getItem('profile'))
-            this.addSettings(profile)
+            this.addSettings(profile);
             this.updateProfile(profile);
-
         }
     }
     updateProfile(dataUser) {
