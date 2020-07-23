@@ -32,47 +32,7 @@ class ProfileController {
                 let profile = new Profile();
                 profile.loadFromJSON(result);
                 this.insert(result);
-                let div = document.querySelector('.profile');
-                div.innerHTML = `
-                <div class="contentProfile">
-                    <ul class="listProfile">
-                        <li id="nameSettings">
-                            <img src="${result._photo}" alt="" class="profileImg">
-                            <p>${result._name}</p>
-                        </li>
-                        <ul class="listInfo">
-                            <div class="n-followers">
-                                <li>Seguidores</li>
-                                <li id="numberFollowers">0</li>
-                            </div>
-                            <hr>
-                            <div class="n-following">
-                                <li>Seguindo</li>
-                                <li id="numberFollowing">0</li>
-                            </div>
-                            <hr>
-                            <div class="n-friends">
-                                <li>Amigos</li>
-                                <li id="numberFriends">0</li>
-                            </div>
-                        </ul>
-                    </ul>
-                    <div class="about">
-                        <h1>Sobre mim</h1>
-                        <ul class="aboutMe">
-                            <li>
-                                <h4>Contato</h4>
-                                <p>${(result._email) ? (result._email) : 'Nenhum adicionado'}</p>
-                            </li>
-                            <hr/>
-                            <li>
-                                <h4>Experiência</h4>
-                                <p>${(result._experience) ? (result._experience) : 'Nenhuma adicionada'}</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                `;
+                this.updateProfile(result);
                 this.addEvents(result);
                 btn.disabled = false;
                 this.editedProfile();
@@ -309,6 +269,7 @@ class ProfileController {
                     document.querySelector('#editedProfile').style.display = 'none';
                     this.activity();
                     this.addSettings(values);
+                    this.createProfile(values);
                 }, 2000);
             },
                 e => {
@@ -324,52 +285,54 @@ class ProfileController {
         if (localStorage.getItem('profile')) {
             let profile = JSON.parse(localStorage.getItem('profile'))
             this.addSettings(profile)
-            let div = document.querySelector('.profile');
-            div.innerHTML = `
-            <div class="contentProfile">
-                <ul class="listProfile">
-                    <li id="nameSettings">
-                        <img src="${profile._photo}" alt="" class="profileImg">
-                        <p>${profile._name}</p>
-                    </li>
-                    <ul class="listInfo">
-                        <div class="n-followers">
-                            <li>Seguidores</li>
-                            <li id="numberFollowers">0</li>
-                        </div>
-                        <hr>
-                        <div class="n-following">
-                            <li>Seguindo</li>
-                            <li id="numberFollowing">0</li>
-                        </div>
-                        <hr>
-                        <div class="n-friends">
-                            <li>Amigos</li>
-                            <li id="numberFriends">0</li>
-                        </div>
-                    </ul>
-                </ul>
-                <div class="about">
-                    <h1>Sobre mim</h1>
-                    <ul class="aboutMe">
-                        <li>
-                            <h4>Contato</h4>
-                            <p>${(profile._email) ? (profile._email) : 'Nenhum adicionado'}</p>
-                        </li>
-                        <hr/>
-                        <li>
-                            <h4>Experiência</h4>
-                            <p>${(profile._experience) ? (profile._experience) : 'Nenhuma adicionada'}</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            `;
+            this.updateProfile(profile);
 
         }
     }
-    addSettings(dataUser) {
-        this.insert(dataUser);
+    updateProfile(dataUser) {
+        let div = document.querySelector('.profile');
+        div.innerHTML = `
+        <div class="contentProfile">
+            <ul class="listProfile">
+                <li id="nameSettings">
+                    <img src="${dataUser._photo}" alt="" class="profileImg">
+                    <p>${dataUser._name}</p>
+                </li>
+                <ul class="listInfo">
+                    <div class="n-followers">
+                        <li>Seguidores</li>
+                        <li id="numberFollowers">0</li>
+                    </div>
+                    <hr>
+                    <div class="n-following">
+                        <li>Seguindo</li>
+                        <li id="numberFollowing">0</li>
+                    </div>
+                    <hr>
+                    <div class="n-friends">
+                        <li>Amigos</li>
+                        <li id="numberFriends">0</li>
+                    </div>
+                </ul>
+            </ul>
+            <div class="about">
+                <h1>Sobre mim</h1>
+                <ul class="aboutMe">
+                    <li>
+                        <h4>Contato</h4>
+                        <p>${(dataUser._email) ? (dataUser._email) : 'Nenhum adicionado'}</p>
+                    </li>
+                    <hr/>
+                    <li>
+                        <h4>Experiência</h4>
+                        <p>${(dataUser._experience) ? (dataUser._experience) : 'Nenhuma adicionada'}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        `;
+    }
+    createProfile(dataUser) {
         let div = document.querySelector('.profile');
         div.innerHTML = `
         <div class="contentProfile">
@@ -411,7 +374,9 @@ class ProfileController {
             </div>
         </div>
         `;
-
+    }
+    addSettings(dataUser) {
+        this.insert(dataUser);
         let timeline = document.querySelector('.timeline-pub');
         timeline.innerHTML = `
                     <div class="email">
