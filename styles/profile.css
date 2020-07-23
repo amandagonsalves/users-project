@@ -278,8 +278,9 @@ header a span {
 }
 .email, .request, .comment {
     margin: 20px;
-    background-color: rgb(235, 235, 235);
-    border: 1px solid lightsteelblue;
+    background-color: rgb(244, 244, 235);
+    border: 1px solid #c6cdd5;
+    border-radius: 10px;
 }
 #email-text {
     text-align: justify;
@@ -307,11 +308,11 @@ header a span {
     margin: 20px;
 }
 #btn-readMore {
-    background-color: rgb(56, 56, 212);
+    background-color: rgb(177, 177, 255);
     border: 1px solid rgb(56, 56, 212);
 }
 #btn-deleteEmail {
-    background-color: rgb(185, 25, 25);
+    background-color: rgb(255, 190, 190);
     border: 1px solid rgb(185, 25, 25);
 }
 .request {
@@ -419,8 +420,8 @@ header a span {
 .comment button {
     margin: 0 20px 20px 20px;
     padding: 10px;
-    border: 1px solid rgb(209, 149, 93);
-    background-color: rgb(212, 209, 24);
+    border: 1px solid rgb(49, 22, 0);
+    background-color: rgb(230, 113, 18);
     outline: none;
     cursor: pointer;
     border-radius: 5px;

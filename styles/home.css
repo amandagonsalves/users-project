@@ -277,4 +277,5 @@ section {
 .photo {
     max-height: 128px;
     max-width: 128px;
+    border-radius: 100%;
 }
