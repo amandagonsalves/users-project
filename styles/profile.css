@@ -251,7 +251,7 @@ header a span {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    border-bottom: 1px solid rgb(200, 209, 219);
+    border-bottom: 1px solid rgb(236, 236, 236);
 }
 #align-comment {
     text-align: justify;
@@ -264,6 +264,9 @@ header a span {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
+}
+.icons-comments i {
+    cursor: pointer;
 }
 /*===timeline====*/
 .timeline-pub {

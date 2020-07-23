@@ -128,6 +128,7 @@ class ProfileController {
     }
     renderComment() {
         let inputs = document.querySelectorAll('.inputComment');
+        let cards = document.querySelectorAll('#activity-users');
         for (let item of inputs) {
             item.addEventListener('keyup', e => {
                 if (e.key === 'Enter') {
@@ -158,13 +159,15 @@ class ProfileController {
                                     comment.remove();
                                 });
                             }
-                        
-
                     }
                 }
             })
         }
-
+        for(let item of cards) {
+            item.querySelector('.icon-comment-tab').addEventListener('click', e => {
+                item.querySelector('.inputComment').focus();
+            })
+        }
     }
     renderCardActivity(character) {
         let pub = document.querySelector('.activity-pub');
@@ -180,8 +183,7 @@ class ProfileController {
             </div>
             <div id="icons-activity">
                 <i class="fa fa-share"></i>
-                <i class="fa fa-like"></i>
-                <i class="fa fa-comment"></i>
+                <i class="fa fa-comment icon-comment-tab"></i>
             </div>
             <ul class="renderComments"></ul>
             <input type="text" placeholder="Adicione um comentário" class="inputComment" id="${character.id}"/>
